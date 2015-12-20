@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>App1</title>
+
+    <!-- WinJS references -->
+    <link href="WinJS/css/ui-dark.css" rel="stylesheet" />
+    <script src="WinJS/js/base.js"></script>
+    <script src="WinJS/js/ui.js"></script>
+
+    <!-- App1 references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+
+    <script src="/js/dataExample.js"></script>
+</head>
+<body class="win-type-body">
+
+        <div id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template">
+            <div style="width: 150px; height: 100px;">
+                <!-- Displays the "picture" field. -->
+                <img src="#" style="width: 60px; height: 60px;"
+                     data-win-bind="alt: title; src: picture" />
+                <div>
+
+                    <!-- Displays the "title" field. -->
+                    <h4 data-win-bind="innerText: title"></h4>
+
+                    <!-- Displays the "text" field. -->
+                    <h6 data-win-bind="innerText: text"></h6>
+                </div>
+            </div>
+        </div>
+
+    <div id="basicListView"
+         data-win-control="WinJS.UI.ListView"
+         data-win-options="{ itemDataSource : DataExample.itemList.dataSource,
+            itemTemplate: select('#mediumListIconTextTemplate'),
+            layout: {type: WinJS.UI.ListLayout}}">
+    </div>  
+</body>
+</html>
