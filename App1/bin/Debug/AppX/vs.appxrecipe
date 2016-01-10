@@ -22,47 +22,103 @@
     <AppXManifest Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-12-15T08:27:51.795</Modified>
+      <Modified>2015-12-29T08:19:57.864</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\default.html">
       <PackagePath>default.html</PackagePath>
-      <Modified>2015-12-25T09:46:28.168</Modified>
+      <Modified>2016-01-09T11:08:31.098</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\back.png">
+      <PackagePath>images\back.png</PackagePath>
+      <Modified>2015-12-29T08:15:05.739</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\BATTERY.png">
+      <PackagePath>images\BATTERY.png</PackagePath>
+      <Modified>2015-12-19T04:09:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\BURGER_MENU.png">
+      <PackagePath>images\BURGER_MENU.png</PackagePath>
+      <Modified>2015-12-19T04:08:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\HOME.png">
+      <PackagePath>images\HOME.png</PackagePath>
+      <Modified>2015-12-19T04:09:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\INFO.png">
+      <PackagePath>images\INFO.png</PackagePath>
+      <Modified>2015-12-19T04:09:00.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\LockScreenLogo.scale-200.png">
       <PackagePath>images\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-10-10T15:39:42.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\refresh.png">
+      <PackagePath>images\refresh.png</PackagePath>
+      <Modified>2015-12-25T18:16:34.868</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\RESOURCES.png">
+      <PackagePath>images\RESOURCES.png</PackagePath>
+      <Modified>2015-12-19T04:08:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\rop.png">
+      <PackagePath>images\rop.png</PackagePath>
+      <Modified>2015-12-28T09:10:51.450</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\SEARCH.png">
+      <PackagePath>images\SEARCH.png</PackagePath>
+      <Modified>2015-12-19T04:09:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\SETTINGS.png">
+      <PackagePath>images\SETTINGS.png</PackagePath>
+      <Modified>2015-12-12T15:27:18.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\SplashScreen.scale-200.png">
       <PackagePath>images\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T15:39:42.000</Modified>
+      <Modified>2015-12-25T10:59:30.326</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\Square150x150Logo.scale-200.png">
       <PackagePath>images\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T15:39:42.000</Modified>
+      <Modified>2015-12-25T10:59:28.173</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\Square44x44Logo.scale-200.png">
       <PackagePath>images\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T15:39:42.000</Modified>
+      <Modified>2015-12-25T10:59:28.963</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>images\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T15:39:42.000</Modified>
+      <Modified>2015-12-25T10:59:29.239</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\StoreLogo.png">
       <PackagePath>images\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T15:39:42.000</Modified>
+      <Modified>2015-12-25T10:59:29.524</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\TOGGLE.png">
+      <PackagePath>images\TOGGLE.png</PackagePath>
+      <Modified>2015-12-19T04:08:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\un-logo-black-hi.png">
+      <PackagePath>images\un-logo-black-hi.png</PackagePath>
+      <Modified>2015-12-25T20:21:23.635</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\UN.png">
+      <PackagePath>images\UN.png</PackagePath>
+      <Modified>2015-12-12T15:25:40.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\Wide310x150Logo.scale-200.png">
       <PackagePath>images\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T15:39:42.000</Modified>
+      <Modified>2015-12-25T10:59:29.755</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\YLC-LOGO.jpg">
+      <PackagePath>images\YLC-LOGO.jpg</PackagePath>
+      <Modified>2015-12-09T11:20:20.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\js\dataExample.js">
       <PackagePath>js\dataExample.js</PackagePath>
@@ -70,7 +126,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\js\default.js">
       <PackagePath>js\default.js</PackagePath>
-      <Modified>2015-12-25T09:30:24.086</Modified>
+      <Modified>2016-01-09T11:14:18.748</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\WinJS\js\en-US\ui.strings.js">
       <PackagePath>WinJS\js\en-US\ui.strings.js</PackagePath>
@@ -86,7 +142,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\css\default.css">
       <PackagePath>css\default.css</PackagePath>
-      <Modified>2015-12-25T09:31:53.006</Modified>
+      <Modified>2016-01-09T12:39:30.768</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\WinJS\css\ui-dark.css">
       <PackagePath>WinJS\css\ui-dark.css</PackagePath>
@@ -102,7 +158,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\bin\Debug\ReverseMap\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-12-15T08:27:51.498</Modified>
+      <Modified>2015-12-29T08:19:57.346</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

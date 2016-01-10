@@ -4,13 +4,215 @@
 .win-listview 
 {
    height: 100%; 
-   // width: 500px; 
     border: 2px solid gray;
 }
 #basicListView .win-listview .win-container:hover {
     color: red;
 }
 
+#SearchPage{
+    width:100%;
+    height:100%;
+
+}
+#search-tabs{
+    height: 30px;
+    width: 100%;
+}
+
+.search-tab-buttons{
+    font-size:15px;
+    background-color: Transparent;
+    width:30%;
+    height: 30px;
+    color: white;
+}
+
+.search-icon-button {
+    height:50px;
+    width: 10%
+}
+
+.button-curved{
+    width:80%;
+    height:50px;
+    border-radius:15px;
+    background-color: #999966;
+    position:relative;
+    left:10%;
+    padding: 10px;
+}
+
+.button-round{
+    width:30px;
+    height:30px;
+    border-radius:15px;
+    size: 20px;
+}
+
+
+#date_display
+{
+    height : 80px;
+    width: 80px;
+    border-radius: 40px; 
+    background-color: #999966; 
+    float:left ; 
+    border-color:#ffffff; 
+    border-style:solid;
+}
+
+#search_date_display
+{
+    height : 80px;
+    width: 80px;
+    border-radius: 40px; 
+    background-color: #999966; 
+    float:left ; 
+    border-color:#ffffff; 
+    border-style:solid;
+}
+
+#DisplayMenuButton
+{
+    width:50px;
+    height:50px; 
+    border-radius:25px;
+    float : right; 
+    background-image: url('images/BURGER_MENU.png') ; 
+    background-size:45px 45px
+
+}
+
+#BackButton
+{
+    width:50px;
+    height:50px; 
+    border-radius:25px;
+    background-image: url('images/BURGER_MENU.png') ; 
+    background-size:45px 45px
+}
+
+#SearchButton
+{
+    width:50px;
+    height:50px; 
+    border-radius:25px;
+    float : right; 
+    background-image: url('images/SEARCH.png') ; 
+    background-size:45px 45px
+}
+
+#blank_circle
+{
+    height : 80px;
+    width: 80px;
+    border-radius: 40px; 
+    background-color:#c2c2a3; 
+    float:left ; 
+    border-color:#ffffff; 
+    border-style:solid;
+}
+
+#search_blank_circle
+{
+    height : 80px;
+    width: 80px;
+    border-radius: 40px; 
+    background-color:#c2c2a3; 
+    float:left ; 
+    border-color:#ffffff; 
+    border-style:solid;
+}
+
+#right_circle
+{
+    float : right;
+    height : 80px;
+    width: 80px;
+    border-radius: 40px; 
+    background-color: #999966; 
+    border-color:#ffffff; 
+    border-style:solid;
+}
+
+#search_right_circle
+{
+    float : right;
+    height : 80px;
+    width: 80px;
+    border-radius: 40px; 
+    background-color: #999966; 
+    border-color:#ffffff; 
+    border-style:solid;
+
+}
+#instruction{
+    float: right;
+    position : relative;
+    font-size: 10px;
+}
+
+#search_instruction{
+    float: right;
+    position : relative;
+    font-size: 10px;
+}
+
+#name {
+    font-size:25px;
+}
+
+#search_name {
+    font-size:25px;
+}
+
+#venue {
+    font-size:25px;
+}
+
+#search_venue {
+    font-size:25px;
+}
+
+#date_text{
+    position:relative; 
+    top:25%; 
+    left:25%; 
+    padding:0px 2px 2px 2px
+}
+
+#search_date_text{
+    position:relative; 
+    top:25%; 
+    left:25%; 
+    padding:0px 2px 2px 2px
+}
+
+.browserButton {
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     color : gold;
+     /*border is optional*/
+     border-bottom:1px solid #444; 
+     cursor: pointer;
+}
+
+#date_text_right{
+    position:relative; 
+    top:25%; 
+    left:25%; 
+    padding:0px 2px 2px 2px
+}
+
+#search_date_text_right{
+    position:relative; 
+    top:25%; 
+    left:25%; 
+    padding:0px 2px 2px 2px
+}
 #parseObjectListIconTextTemplate
 {
 

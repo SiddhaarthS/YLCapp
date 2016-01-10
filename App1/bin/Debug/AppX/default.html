@@ -15,35 +15,1154 @@
 
     <script src="/js/dataExample.js"></script>
 </head>
-<body class="win-type-body">
+<body class="win-type-body" id="body">
+    <div id="SearchPage">
+        <div id="search-title-bar" style="padding : 10px 10px 10px 10px">
+            <button id="BackButton" title="Go Back" style="background-image: url('images/back.png')"> </button>&nbsp;&nbsp;
+            <img src="images/YLC-LOGO.jpg" style=" width: 50px; height:50px;border-radius:25px;" />&nbsp;&nbsp;
+            Search<br/><hr/><br/>
+            <div id="search-tabs">
+                <button id="SearchByNameButton"  class="search-tab-buttons" >Search By Name</button>
+                <button id="SearchByCityButton" class="search-tab-buttons" style="position:relative; left:5%">Search By City</button>
+                <button id="SearchByMonthButton" class="search-tab-buttons" style="float:right;">Search By Month</button>
+            </div>
+        </div>
+        <div id="SearchByNamePane" style="width:90%; display:none; float:left">
+            <input id="EventName" type="text" placeholder="Event Name" style="width:100%;font-size:20px; height:45px"/>
+        </div>
+        <div id="SearchByCityPane" style="width:90%; display:none; float:left">
+            <input id="CityName" type="text" placeholder="City Name" style="width:100%;font-size:20px; height:45px" />
+        </div>
+        <div id="SearchByMonthPane" style="width:90%; float:left">
+            <select id="MonthName" style="width:100%;font-size:20px; height:45px">
+                <option value="jan">January</option>
+                <option value="feb">February</option>
+                <option value="mar">March</option>
+                <option value="apr">April</option>
+                <option value="may">May</option>
+                <option value="jun">June</option>
+                <option value="jul">July</option>
+                <option value="aug">August</option>
+                <option value="sep">September</option>
+                <option value="oct">October</option>
+                <option value="nov">November</option>
+                <option value="dec">December</option>
+            </select>
+        </div>
+        <div id="searchObjectListIconTextTemplate" data-win-control="WinJS.Binding.Template" >                     
+                <!-- Displays the "start_date" and "end_date" field. -->
+                <div id="search_date_display">
+                   <div id="search_date_text">
+                       <scan data-win-bind="innerText: start_date"></scan>-<scan data-win-bind="innerText: end_date"></scan><br/>
+                      <scan data-win-bind="innerText: sort_date"></scan>
+                  </div>
+                    <!-- Displays the "venue" field and "city" -->
+                    <div id="search_venue_text" style="float:left">
+                        <div id="search_name">
+                            <scan data-win-bind="innerText: name "></scan><br />
+                        </div>
+                        <scan data-win-bind="innerText: city"></scan>
+                    </div>
+                    <div id="search_instruction">
+                        Touch for details
+                    </div>
+                    <!--The following tags will initially be hidden and toggle with the tags used above on clicking-->
+                    <div id="search_blank_circle">
+                    </div>
 
-    <button id="helloButton">Testing REST API</button><br/>
-    <a href="AboutMUN.html">MUN Resources</a>
-        <div id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template">
+                    <div id="search_right_circle">
+                        <div id="search_date_text_right">
+                            <scan data-win-bind="innerText: start_date"></scan>-<scan data-win-bind="innerText: end_date"></scan><br />
+                            <scan data-win-bind="innerText: sort_date"></scan>
+                        </div>
+                    </div>
 
-                    <!-- Displays the "title" field. -->
-                    <h4 data-win-bind="innerText: title"></h4>
+                    <div id="search_detailed_text" style="float:left">
+                        <div id="search_venue">
+                            <scan data-win-bind="innerText: venue "></scan>,<scan data-win-bind="innerText: city "></scan><br />
+                        </div>
+                        <button class="browserButton" id="search_browserButton"><scan data-win-bind="innerText: link"></scan></button><br />
+                        <scan data-win-bind="innerText: contact1"></scan>
+                    </div>
+              </div>
+        </div>
+        <div float="left">
+            <button id="GoSearchNameButton" class="search-icon-button" style="background-image: url('images/SEARCH.png');background-size:50px 50px; background-repeat:no-repeat"></button>
+            <button id="GoSearchCityButton" class="search-icon-button" style="background-image: url('images/SEARCH.png');background-size:50px 50px; background-repeat:no-repeat"></button>
+            <button id="GoSearchMonthButton" class="search-icon-button" style="background-image: url('images/SEARCH.png');background-size:50px 50px; background-repeat:no-repeat"></button>
+        </div>
+        <div id="searchListView"
+             data-win-control="WinJS.UI.ListView"
+             data-win-options="{ 
+                itemTemplate: select('#searchObjectListIconTextTemplate'),oniteminvoked : searchItemInvokedHandler,
+                layout: {type: WinJS.UI.ListLayout}}"
+             style="width:100%">
+        </div>  
+    </div>
+        <div id="title-bar" style="padding : 10px 10px 10px 10px">
 
-                    <!-- Displays the "text" field. -->
-                    <h6 data-win-bind="innerText: text"></h6>
-
+            <img src="images/YLC-LOGO.jpg" style="width : 50px; height : 50px;border-radius:25px;"/>&nbsp;&nbsp;
+            <button id="DisplayMenuButton" title="Display Options" style="background-image: url('images/BURGER_MENU.png')"> </button>
+            <blank style="float:right">&nbsp;&nbsp;</blank>
+            <button id="SearchButton" title="Search Events" style="background-image: url('images/SEARCH.png')"> </button>
+            Home
         </div>
 
-     <div id="parseObjectListIconTextTemplate" data-win-control="WinJS.Binding.Template">
-
-                    <!-- Displays the "venue" field. -->
-                    <h4 data-win-bind="innerText: venue"></h4>
-
-                    <!-- Displays the "city" field. -->
-                    <h6 data-win-bind="innerText: city"></h6>
-
+        <div id="navigation-button-bar" style="padding : 10px 10px 10px 10px ">
+            <button id="HomeButton" class="button-round" title="Home" style="background-image: url('images/HOME.png') ; background-size:25px 25px"> </button>&nbsp;&nbsp;
+            <button id="MUNButton" class="button-round" title="MUN Resources" style="background-image: url('images/RESOURCES.png') ; background-size:25px 25px"> </button>&nbsp;&nbsp;
+            <button id="UNButton" class="button-round" title="About UN" style="background-image: url('images/un-logo-black-hi.png') ; background-size:25px 25px"> </button> &nbsp;&nbsp;
+            <button id="YLCButton" class="button-round" title="About YLC" style="background-image: url('images/INFO.png') ; background-size:25px 25px"> </button> &nbsp;&nbsp;
+            <button id="RefreshButton" class="button-round" title="Refresh" style="background-image: url('images/refresh.png') ; background-size:25px 25px"> </button> &nbsp;&nbsp;
         </div>
 
-    <div id="basicListView"
-         data-win-control="WinJS.UI.ListView"
-         data-win-options="{ itemDataSource : DataExample.itemList.dataSource,
-            itemTemplate: select('#mediumListIconTextTemplate'),
-            layout: {type: WinJS.UI.ListLayout}}">
-    </div>  
+            <div id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template">
+
+                        <!-- Displays the "title" field. -->
+                        <h4 data-win-bind="innerText: title"></h4>
+
+                        <!-- Displays the "text" field. -->
+                        <h6 data-win-bind="innerText: text"></h6>
+
+            </div>
+
+         <div id="parseObjectListIconTextTemplate" data-win-control="WinJS.Binding.Template" >
+                        
+                        <!-- Displays the "start_date" and "end_date" field. -->
+                        <div id="date_display">
+                            <div id="date_text">
+                                <scan data-win-bind="innerText: start_date"></scan>-<scan data-win-bind="innerText: end_date"></scan><br/>
+                                <scan data-win-bind="innerText: sort_date"></scan>
+                            </div>
+                        </div>
+                        <!-- Displays the "venue" field and "city" -->
+                        <div id="venue_text" style="float:left">
+                            <div id="name">
+                                <scan data-win-bind="innerText: name "></scan><br />
+                            </div>
+                             <scan data-win-bind="innerText: city"></scan>
+                        </div>
+                        <div id="instruction">
+                            Touch for details
+                        </div>
+                        <!--The following tags will initially be hidden and toggle with the tags used above on clicking-->
+                        <div id="blank_circle">
+                        </div>
+
+                        <div id="right_circle">
+                            <div id="date_text_right">
+                                <scan data-win-bind="innerText: start_date"></scan>-<scan data-win-bind="innerText: end_date"></scan><br />
+                                <scan data-win-bind="innerText: sort_date"></scan>
+                            </div>
+                        </div>
+
+                     <div id="detailed_text" style="float:left">
+                         <div id="venue">
+                             <scan data-win-bind="innerText: venue "></scan>,<scan data-win-bind="innerText: city "></scan><br />
+                         </div>
+                         <button class="browserButton" id="browserButton"><scan data-win-bind="innerText: link"></scan></button><br/>
+                         <scan data-win-bind="innerText: contact1"></scan>
+                     </div>
+                    
+            </div>
+
+        <div id="basicListView"
+             data-win-control="WinJS.UI.ListView"
+             data-win-options="{ itemDataSource : DataExample.itemList.dataSource,
+                itemTemplate: select('#mediumListIconTextTemplate'),oniteminvoked : itemInvokedHandler,
+                layout: {type: WinJS.UI.ListLayout}}">
+        </div>  
+
+        <div id= "UN" style="display : 'none'; width:90%; padding-left:5%">
+            <div id="UNContent" class="win-scrollview" style="overflow-y: scroll;">
+                <p>
+                    The United Nations (UN) is an intergovernmental organisation established on 24 October 1945 to promote international cooperation. It replaced the League of Nations and the organisation was created following World War II to prevent another conflict. At the time it was founded, the UN had 51 member states; there are now 193. Most nations are members of the UN and send people to the headquarters to hold meetings and pass resolutions (make decisions) about global issues.
+                    The United Nations headquarters building in New York
+
+                    The goals of the United Nations are:
+                    <ul>
+                        <li>to keep world peace</li>
+                        <li>to help countries get along</li>
+                        <li>to improve living conditions for people all over the world</li>
+                        <li>and to make the world a better place</li>
+                    </ul>
+                </p>
+                <h4>History</h4>
+                <p>After World War I, the nations of the world formed the League of Nations. This organization was a place where nations could talk through their differences calmly. However, some countries like Germany, Italy and Japan ignored the League and tried to solve their problems through war. Because members of the League of Nations did not want to go to war to protect other members, the League failed and the Second World War began.
+
+                    During World War II, the Allied Powers often called themselves "the United Nations" (united against the Axis Powers). After the War, the winners formed a new organization for world peace. On 25th April 1945 in San Francisco, they decided on the name 'United Nations'. The U.N. was created on 24th October 1945 and its first meeting was held in January 1946. Since 1947 the 24th of October has been called 'United Nations Day'.
+                <br/>
+                <h4>Headquarters</h4>
+                <p>All organs of UN are based in New york,USA,except the International Court of Justice which is located at The Hague in Netherlands
+                </p>
+                <h4>Activity</h4>
+                <p>
+                    The main building for the United Nations is in New York City in the United States of America, but the U.N. also has important offices in Geneva (Switzerland), Nairobi (Kenya) and Vienna (Austria). The U.N. tries to be peaceful, but sometimes when talks do not work the U.N., unlike the League of Nations, will fight too. In the 1950s the UN helped South Korea in a war against North Korea, and in the 1990's the U.N. helped to force Iraqi soldiers out of Kuwait. At other times, the U.N. has formed 'peacekeeping' forces. UN peacekeepers travel to troubled places in the world and try - sometimes successfully, sometimes not - to keep the peace. Today there are U.N. peacekeepers working in Afghanistan, Cyprus, Haiti, Liberia and several other countries. Through a series of goals, resolutions and declarations adopted by member nations of the United Nations, the world has a set of commitments, actions and goals to stop and reverse the spread of H.I.V. and scale up towards universal access to H.I.V. prevention, treatment, care and support services.
+                </p>
+                <h4>Divisions</h4>
+                <p>
+                    The United Nations has set up six "principal organs":<br/>
+                    <ul>
+                        <li>UN General Assembly</li>
+                        <li>UN Secretariat</li>
+                        <li>International Court of Justice</li>
+                        <li>U.N. Security Council</li>
+                        <li>U.N. Economic and Social Council</li>
+                        <li>U.N. Trusteeship Council</li>
+                    </ul>
+                    Additionally there are some so-called "special agencies of the United Nations" (this is only a selection):<br/>
+                    <ul>
+                        <li>The United Nations Children's Fund (U.N.I.C.E.F.)</li>
+                        <li>The World Health Organization (W.H.O.)</li>
+                        <li>The Food and Agriculture Organization (F.A.O.)</li>
+                        <li>The United Nations Educational, Scientific and Cultural Organization (U.N.E.S.C.O.)</li>
+                        <li>The International Labour Organization (I.L.O.)</li>
+                        <li>The International Monetary Fund (I.M.F.)</li>
+                        <li>The United Nations Environment Programme (U.N.E.P.)</li>
+                        <li>The United Nations Development Programme (U.N.D.P.)</li>
+                    </ul>
+                </p>
+
+            </div>
+        </div>
+        <div id="MUN" style="display : 'none'">
+            <div id="MUN_button_pane">
+                <button id="ROPButton" class="button-curved">  Rules of Procedure </button><br /><br />
+                <button id="PCButton" class="button-curved">  Preambulatory Clauses </button><br /><br />
+                <button id="OCButton" class="button-curved">  Operative Clauses </button><br /><br />
+                <button id="UNCButton" class="button-curved">  UN Charter </button><br /><br />
+                <button id="DHRButton" class="button-curved">  Declaration of Human Rights </button><br /><br />
+            </div>
+            <div id="MUN_Content" style="width:90%; padding-left:5%" >
+                <div id="ROP" class="win-scrollview" style="overflow-y: scroll;" >
+                        Like real UN bodies, Model UN committees have lengthy agendas and many delegates who want to convey their country's positions. To help maintain order, Model UN conferences adopt rules of procedure to establish when a delegate may speak and what he or she may address. Some conferences adopt a few simple rules, while others use lengthy and complex rules of procedure. Because each conference is independent – there is no governing body for Model UN – rules of procedure vary. A few conferences adapt their rules of procedure directly from the United Nations rules while most use variations of the Roberts Rules of Order. It is essential to familiarize yourself with the rules of each specific conference you plan to attend.
+                        <br />
+                        At a Model UN conference, there is formal debate as well as informal debate, called caucusing.
+                        <br /><br/>
+                        <b>Formal Debate:</b><br/> During formal debate, the staff maintains a speakers list and delegates speak in the order they are listed. At this time, delegates have an opportunity to share their views with the entire committee. Delegates make speeches, answer questions, and introduce and debate resolutions and amendments. Formal debate is important to the committee\'s work. By not knowing the rules of procedure, delegates slow down the debate and hold back their committee\'s progress.
+                        <br/><br/>
+                         <b>Moderated Caucus:</b><br/> During a caucus, which is a temporary recess, the rules of procedure are suspended. To go to a moderated caucus, a delegate makes a motion to suspend debate and the committee votes. Caucusing helps to facilitate discussion, especially when there is a long speakers list. A moderated caucus is a mixture of both formal and informal debate. Anyone may speak if they raise their placard and are called on by the Chair.
+                        <br />
+                        .Unmoderated Caucus: In an unmoderated caucus, delegates meet informally with one another and the committee staff to discuss and negotiate draft resolutions, amendments and other issues.
+                        <br/><br/>
+                       <img src="images/rop.png" />
+                </div>
+                <div id="PC" class="win-scrollview" style="overflow-y: scroll;">
+                    The preamble of a draft resolution states the reasons for which the committee is addressing the topic and highlights past international action on the issue. Each clause begins with a present participle (called a preambulatory phrase) and ends with a comma.<br/>
+                    <br/>Sample Preambulatory PhrasesAffirming<br/><br/>
+                    Alarmed by<br/>
+                    Approving<br />
+                    Bearing in mind<br />
+                    Believing<br />
+                    Confident<br />
+                    Contemplating<br />
+                    Convinced<br />
+                    Declaring<br />
+                    Deeply concerned<br />
+                    Deeply conscious<br />
+                    Deeply convinced<br />
+                    Deeply Disturbed<br />
+                    Deeply Regretting<br />
+                    Desiring<br />
+                    Emphasizing<br />
+                    Expecting<br />
+                    Emphasizing<br />
+                    Expecting<br />
+                    Expressing it’s appreciation<br />
+                    Fulfilling<br />
+                    Fully aware<br />
+                    Emphasizing<br />
+                    Expecting<br />
+                    Expressing it’s appreciation<br />
+                    Fulfilling<br />
+                    Fully aware<br />
+                    Further deploring<br />
+                    Further recalling<br />
+                    Guided by<br />
+                    Having adopted<br />
+                    Having considered<br />
+                    Having examined<br />
+                    Having received<br />
+                    Keeping in min<br />
+                    Noting with deep concern<br />
+                    Nothing with satisfaction<br />
+                    Noting further<br />
+                    Observing<br />
+                    Reaffirming<br />
+                    Realizing<br />
+                    Recalling<br />
+                    Recognizing<br />
+                    Referring<br />
+                    Seeking<br />
+                    Taking into consideration<br />
+                    Taking note<br />
+                    Viewing with appreciation<br />
+                    Welcoming<br />
+                </div>
+                <div id="OC" class="win-scrollview" style="overflow-y: scroll;">
+                    Operative clauses offer solutions to issues addressed earlier in a resolution through the perambulatory section.  These clauses are action oriented and should include both an underlined verb at the beginning of your sentence followed by the proposed solution.<br/>
+                   <br/> Sample Operative Phrases<br/><br/>
+                    Accepts<br/>
+                    Affirms<br/>
+                    Approves<br />
+                    Authorizes<br />
+                    Calls<br />
+                    Calls upon<br />
+                    Condemns<br />
+                    Confirms<br />
+                    Congratulates<br />
+                    Considers<br />
+                    Declares accordingly<br />
+                    Deplores<br />
+                    Designates<br />
+                    Draws the attention<br />
+                    Emphasizes<br />
+                    Encourages<br />
+                    Endorses<br />
+                    Expresses its appreciation<br />
+                    Expresses its hope<br />
+                    Further invites<br />
+                    Further proclaims<br />
+                    Further reminds<br />
+                    Further recommends<br />
+                    Further requests<br />
+                    Further resolves<br />
+                    Has resolved<br />
+                    Notes<br />
+                    Proclaims<br />
+                    Reaffirms<br />
+                    Recommends<br />
+                    Regrets<br />
+                    Reminds<br />
+                    Requests<br />
+                    Solemnly affirms<br />
+                    Strongly condemns<br />
+                    Supports<br />
+                    Takes note of<br />
+                    Transmits<br />
+                    Trusts<br />
+                </div>
+                <div id="UNC" class="win-scrollview" style="overflow-y: scroll;">
+                    <a href="#charter_intro_content">Introductory note</a><br/>
+                    <a href="#charter_preamble_content">Preamble</a><br />
+                    <a href="#charter_chapter1_content">Chapter I: Purposes and Principles</a><br />
+                    <a href="#charter_chapter2_content">Chapter II: Membership</a><br />
+                    <a href="#charter_chapter3_content">Chapter III: Organs</a><br />
+                    <a href="#charter_chapter4_content">Chapter IV: The General Assembly</a><br />
+                    <a href="#charter_chapter5_content">Chapter V: The Security Council</a><br />
+                    <a href="#charter_chapter6_content">Chapter VI: Pacific Settlement of Issues</a><br />
+                    <a href="#charter_chapter7_content">Chapter VII: Action with Respect to Threats to the Peace, Breach of the Peace and Acts of Aggression</a><br />
+                    <a href="#charter_chapter8_content">Chapter VIII: Regional Arrangements</a><br />
+                    <a href="#charter_chapter9_content">Chapter IX: International Economic and Social Cooperation</a><br />
+                    <a href="#charter_chapter10_content">Chapter X: The Economic and Social Council</a><br />
+                    <a href="#charter_chapter11_content">Chapter XI: Declaration regarding Non-Self-Governing Territories</a><br />
+                    <a href="#charter_chapter12_content">Chapter XII: International Trusteeship System</a><br />
+                    <a href="#charter_chapter13_content">Chapter XIII: The Trusteeship Council</a><br />
+                    <a href="#charter_chapter14_content">Chapter XIV: The International Court of Justice</a><br />
+                    <a href="#charter_chapter15_content">Chapter XV: The Secretariat</a><br />
+                    <a href="#charter_chapter16_content">Chapter XVI: Miscellaneous Provisions</a><br />
+                    <a href="#charter_chapter17_content">Chapter XVII: Transitional Security Arrangements</a><br />
+                    <a href="#charter_chapter18_content">Chapter XVIII: Amendments</a><br />
+                    <a href="#charter_chapter19_content">Chapter XIX: Ratification and Signature</a><br />
+                    <string id="charter_intro_content">
+                        The Charter of the United Nations was signed on 26 June 1945, in San Francisco, at the conclusion of the United Nations Conference on International Organisation, and came into force on 24 October 1945. The Statute of the International Court of Justice is an integral part of the Charter.
+                        <br/>
+                        Amendments to Articles 23, 27 and 61 of the Charter were adopted by the General Assembly on 17 December 1963 and came into force on 31 August 1965. A further amendment to Article 61 was adopted by the General Assembly on 20 December 1971, and came into force on 24 September 1973. An amendment to Article 109, adopted by the General Assembly on 20 December 1965, came into force on 12 June 1968.
+                        <br/>
+                        The amended Article 27 provides that decisions of the Security Council on procedural matters shall be made by an affirmative vote of nine members (formerly seven) and on all other matters by an affirmative vote of nine members (formerly seven), including the concurring votes of the five permanent members of the Security Council.
+                        <br/>
+                        The amendment to Article 61, which entered into force on 31 August 1965, enlarged the membership of the Economic and Social Council from eighteen to twenty-seven. The subsequent amendment to that Article, which entered into force on 24 September 1973, further increased the membership of the Council from twenty-seven to fifty-four.
+                        <br/>
+                        The amendment to Article 109, which relates to the first paragraph of that Article, provides that a General Conference of Member States for the purpose of reviewing the Charter may be held at a date and place to be fixed by a two-thirds vote of the members of the General Assembly and by a vote of any nine members (formerly seven) of the Security Council. Paragraph 3 of Article 109, which deals with the consideration of a possible review conference during the tenth regular session of the General Assembly, has been retained in its original form in its reference to a “vote, of any seven members of the Security Council”, the paragraph having been acted upon in 1955 by the General Assembly, at its tenth regular session, and by the Security Council.
+                    </string>
+                    <string id="charter_preamble_content">
+                        WE THE PEOPLES OF THE UNITED NATIONS,
+                        <br/>
+                        DETERMINED
+                        <br/>
+                        to save succeeding generations from the scourge of war, which twice in our lifetime has brought untold sorrow to mankind, and
+                        <br/>
+                        to reaffirm faith in fundamental human rights, in the dignity and worth of the human person, in the equal rights of men and women and of nations large and small, and
+                        <br/>
+                        to establish conditions under which justice and respect for the obligations arising from treaties and other sources of international law can be maintained, and
+                        <br/>
+                        to promote social progress and better standards of life in larger freedom,
+                        <br/>
+                        AND FOR THESE ENDS
+                        <br/>
+                        to practice tolerance and live together in peace with one another as good neighbours, and
+                        <br/>
+                        to unite our strength to maintain international peace and security, and
+                        <br/>
+                        to ensure, by the acceptance of principles and the institution of methods, that armed force shall not be used, save in the common interest, and
+                        <br/>
+                        to employ international machinery for the promotion of the economic and social advancement of all peoples,
+                        <br/>
+                        HAVE RESOLVED TO COMBINE OUR EFFORTS
+                        <br/>
+                        TO ACCOMPLISH THESE AIMS
+                        <br/>
+                        Accordingly, our respective Governments, through representatives assembled in the city of San Francisco, who have exhibited their full powers found to be in good and due form, have agreed to the present Charter of the United Nations and do hereby establish an international organization to be known as the United Nations.
+                    </string>
+                    <string id="charter_chapter1_content">
+                        Article 1
+                        <br/>
+                        The Purposes of the United Nations are: 1. To maintain international peace and security, and to that end: to take effective collective measures for the prevention and removal of threats to the peace, and for the suppression of acts of aggression or other breaches of the peace, and to bring about by peaceful means, and in conformity with the principles of justice and international law, adjustment or settlement of international disputes or situations which might lead to a breach of the peace;
+                        <br/>
+                        2. To develop friendly relations among nations based on respect for the principle of equal rights and self-determination of peoples, and to take other appropriate measures to strengthen universal peace;
+                        <br/>
+                        3. To achieve international co-operation in solving international problems of an economic, social, cultural, or humanitarian character, and in promoting and encouraging respect for human rights and for fundamental freedoms for all without distinction as to race, sex, language, or religion; and
+                        <br/>
+                        4. To be a centre for harmonizing the actions of nations in the attainment of these common ends.
+                        <br/>Article 2
+                        <br/>
+                        The Organization and its Members, in pursuit of the Purposes stated in Article 1, shall act in accordance with the following Principles.
+                        <br/>
+                        1. The Organization is based on the principle of the sovereign equality of all its Members.
+                        <br/>
+                        2. All Members, in order to ensure to all of them the rights and benefits resulting from membership, shall fulfil in good faith the obligations assumed by them in accordance with the present Charter.
+                        <br/>
+                        3. All Members shall settle their international disputes by peaceful means in such a manner that international peace and security, and justice, are not endangered.
+                        <br/>
+                        4. All Members shall refrain in their international relations from the threat or use of force against the territorial integrity or political independence of any state, or in any other manner inconsistent with the Purposes of the United Nations.
+                        <br/>
+                        5. All Members shall give the United Nations every assistance in any action it takes in accordance with the present Charter, and shall refrain from giving assistance to any state against which the United Nations is taking preventive or enforcement action.
+                        <br/>
+                        6. The Organization shall ensure that states which are not Members of the United Nations act in accordance with these Principles so far as may be necessary for the maintenance of international peace and security.
+                        <br/>
+                        7. Nothing contained in the present Charter shall authorize the United Nations to intervene in matters which are essentially within the domestic jurisdiction of any state or shall require the Members to submit such matters to settlement under the present Charter; but this principle shall not prejudice the application of enforcement measures under Chapter VII.
+                    </string>
+                    <string id="charter_chapter2_content">
+                        Article 3
+                        <br/>
+                        The original Members of the United Nations shall be the states which, having participated in the United Nations Conference on International Organization at San Francisco, or having previously signed the Declaration by United Nations of 1 January 1942, sign the present Charter and ratify it in accordance with Article 110.
+                        <br/>Article 4
+                        <br/>
+                        1. Membership in the United Nations is open to a other peace-loving states which accept the obligations contained in the present Charter and, in the judgment of the Organization, are able and willing to carry out these obligations.
+                        <br/>
+                        2. The admission of any such state to membership in the Nations will be effected by a decision of the General Assembly upon the recommendation of the Security Council.
+                        <br/>Article 5
+                        <br/>
+                        A Member of the United Nations against which preventive or enforcement action has been taken by the Security Council may be suspended from the exercise of the rights and privileges of membership by the General Assembly upon the recommendation of the Security Council. The exercise of these rights and privileges may be restored by the Security Council.
+                        <br/>        Article 6
+                        <br/>
+                        A Member of the United Nations which has persistently violated the Principles contained in the present Charter may be expelled from the Organization by the General Assembly upon the recommendation of the Security Council.
+                    </string>
+                    <string id="charter_chapter3_content">
+                        Article 7
+                        <br/>
+                        1. There are established as the principal organs of the United Nations: a General Assembly, a Security Council, an Economic and Social Council, a Trusteeship Council, an International Court of Justice, and a Secretariat.
+                        <br/>
+                        2. Such subsidiary organs as may be found necessary may be established in accordance with the present Charter.
+                        <br/>Article 8
+                        <br/>
+                        The United Nations shall place no restrictions on the eligibility of men and women to participate in any capacity and under conditions of equality in its principal and subsidiary organs.
+                    </string>
+                    <string id="charter_chapter4_content">
+                        Composition
+                        <br/>Article 9
+                        <br/>
+                        1. The General Assembly shall consist of all the Members of the United Nations. 2. Each Member shall have not more than five representatives in the General Assembly.
+                        <br/>Functions and Powers
+                        <br/>Article 10
+                        <br/>
+                        The General Assembly may discuss any questions or any matters within the scope of the present Charter or relating to the powers and functions of any organs provided for in the present Charter, and, except as provided in Article 12, may make recommendations to the Members of the United Nations or to the Security Council or to both on any such questions or matters.
+                        <br/>Article 11
+                        <br/>
+                        1. The General Assembly may consider the general principles of co-operation in the maintenance of international peace and security, including the principles governing disarmament and the regulation of armaments, and may make recommendations with regard to such principles to the Members or to the Security Council or to both.
+                        <br/>
+                        2. The General Assembly may discuss any questions relating to the maintenance of international peace and security brought before it by any Member of the United Nations, or by the Security Council, or by a state which is not a Member of the United Nations in accordance with Article 35, paragraph 2, and, except as provided in Article 12, may make recommendations with regard to any such questions to the state or states concerned or to the Security Council or to both. Any such question on which action is necessary shall be referred to the Security Council by the General Assembly either before or after discussion.
+                        <br/>
+                        3. The General Assembly may call the attention of the Security Council to situations which are likely to endanger international peace and security.
+                        <br/>
+                        4. The powers of the General Assembly set forth in this Article shall not limit the general scope of Article 10.
+                        Article 12
+                        <br/>
+                        1. While the Security Council is exercising in respect of any dispute or situation the functions assigned to it in the present Charter, the General Assembly shall not make any recommendation with regard to that dispute or situation unless the Security Council so requests.
+                        <br/>
+                        2. The Secretary-General, with the consent of the Security Council, shall notify the General Assembly at each session of any matters relative to the maintenance of international peace and security which are being dealt with by the Security Council and similarly notify the General Assembly, or the Members of the United Nations if the General Assembly is not in session, immediately the Security Council ceases to deal with such matters.
+                        <br/>Article 13
+                        <br/>
+                        1. The General Assembly shall initiate studies and make recommendations for the purpose of:
+                        <br/>
+                        a. promoting international co-operation in the political field and encouraging the progressive development of international law and its codification;
+                        <br/>
+                        b. promoting international co-operation in the economic, social, cultural, educational, and health fields, an assisting in the realization of human rights and fundamental freedoms for all without distinction as to race, sex, language, or religion.
+                        <br/>
+                        2. The further responsibilities, functions and powers of the General with respect to matters mentioned in paragraph ) above are set forth in Chapters IX and X.
+                        <br/>Article 14
+                        <br/>Subject to the provisions of Article 12, the General Assembly may recommend measures for the peaceful adjustment of any situation, regardless of origin, which it deems likely to impair the general welfare or friendly relations among nations, including situations resulting from a violation of the provisions of the present Charter setting forth the Purposes and Principles of the United Nations.
+                        <br/>Article 15
+                        <br/>
+                        1. The General Assembly shall receive and consider annual and special reports from the Security Council; these reports shall include an account of the measures that the Security Council has decided upon or taken to maintain international peace and security.
+                        <br/>
+                        2. The General Assembly shall receive and consider reports from the other organs of the United Nations.
+                        <br/>Article 16
+                        <br/>
+                        The General Assembly shall perform such functions with respect to the international trusteeship system as are assigned to it under Chapters XII and XIII, including the approval of the trusteeship agreements for areas not designated as strategic.
+                        <br/>Article 17
+                        <br/>
+                        1. The General Assembly shall consider and approve the budget of the Organization.
+                        <br/>
+                        2. The expenses of the Organization shall be borne by the Members as apportioned by the General Assembly.
+                        <br/>
+                        3. The Assembly shall consider and approve any financial and budgetary arrangements with specialize agencies referred to in Article 57 and shall examine the administrative budgets of such specialized agencies with a view to making recommendations to the agencies concerned.
+                        <br/>Voting
+                        <br/>Article 18
+                        <br/>
+                        1. Each member of the General Assembly shall have one vote.
+                        <br/>
+                        2. Decisions of the General Assembly on important questions shall be made by a two- thirds majority of the members present and voting. These questions shall include: recommendations with respect to the maintenance of international peace and security, the election of the non-permanent members of the Security Council, the election of the members of the Economic and Social Council, the election of members of the Trusteeship Council in accordance with paragraph 1 of Article 86, the admission of new Members to the United Nations, the suspension of the rights and privileges of membership, the expulsion of Members, questions relating to the operation of the trusteeship system, and budgetary questions.
+                        <br/>
+                        3. Decisions on other questions, including the determination of additional categories of questions to be decided by a two-thirds majority, shall be made by a majority of the members present and voting.
+                        <br/>Article 19
+                        <br/>A Member of the United Nations which is in arrears in the payment of its financial contributions to the Organization shall have no vote in the General Assembly if the amount of its arrears equals or exceeds the amount of the contributions due from it for the preceding two full years. The General Assembly may, nevertheless, permit such a Member to vote if it is satisfied that the failure to pay is due to conditions beyond the control of the Member.
+                        <br/>Procedure
+                        <br/>Article 20
+                        <br/>
+                        The General Assembly shall meet in regular annual sessions and in such special sessions as occasion may require. Special sessions shall be convoked by the Secretary-General at the request of the Security Council or of a majority of the Members of the United Nations.
+                        <br/>Article 21
+                        <br/>
+                        The General Assembly shall adopt its own rules of procedure. It shall elect its President for each session.
+                        <br/>Article 22
+                        <br/>
+                        The General Assembly may establish such subsidiary organs as it deems necessary for the performance of its functions.
+                    </string>
+                    <string id="charter_chapter5_content">
+                        Composition
+                        <br/>Article 23
+                        <br/>
+                        1. The Security Council shall consist of fifteen Members of the United Nations. The Republic of China, France, the Union of Soviet Socialist , the United Kingdom of Great Britain and Northern Ireland, and the United States of America shall be permanent members of the Security Council. The General Assembly shall elect ten other Members of the United Nations to be non-permanent members of the Security Council, due regard being specially paid, in the first in- stance to the contribution of Members of the United Nations to the maintenance of international peace and security and to the other purposes of the Organization, and also to equitable geographical distribution.
+                        <br/>
+                        2. The non-permanent members of the Security Council shall be elected for a term of two years. In the first election of the non- permanent members after the increase of the membership of the Security Council from eleven to fifteen, two of the four additional members shall be chosen for a term of one year. A retiring member shall not be eligible for immediate re-election.
+                        <br/>
+                        3. Each member of the Security Council shall have one representative.
+                        <br/>Functions and Powers
+                        <br/>Article 24
+                        <br/>
+                        1. In order to ensure prompt and effective action by the United Nations, its Members confer on the Security Council primary responsibility for the maintenance of international peace and security, and agree that in carrying out its duties under this responsibility the Security Council acts on their behalf.
+                        <br/>
+                        2. In discharging these duties the Security Council shall act in accordance with the Purposes and Principles of the United Nations. The specific powers granted to the Security Council for the discharge of these duties are laid down in Chapters VI, VII, VIII, and XII.
+                        <br/>
+                        3. The Security Council shall submit annual and, when necessary, special reports to the General Assembly for its consideration.
+                        <br/>Article 25
+                        <br/>
+                        The Members of the United Nations agree to accept and carry out the decisions of the Security Council in accordance with the present Charter.
+                        <br/>Article 26
+                        <br/>
+                        In order to promote the establishment and maintenance of international peace and security with the least diversion for armaments of the world\'s human and economic resources, the Security Council shall be responsible for formulating, with the assistance of the Military Staff Committee referred to in Article 47, plans to be submitted to the Members of the United-Nations for the establishment of a system for the regulation of armaments.
+                        <br/>Voting
+                        <br/>Article 27
+                        <br/>
+                        1. Each member of the Security Council shall have one vote.
+                        <br/>
+                        2. Decisions of the Security Council on procedural matters shall be made by an affirmative vote of nine members.
+                        <br/>
+                        3. Decisions of the Security Council on all other matters shall be made by an affirmative vote of nine members including the concurring votes of the permanent members; provided that, in decisions under Chapter VI, and under paragraph 3 of Article 52, a party to a dispute shall abstain from voting.
+                        <br/>Procedure
+                        <br/>Article 28
+                        <br/>
+                        1. The Security Council shall be so organized as to be able to function continuously. Each member of the Security Council shall for this purpose be represented at times at the seat of the Organization.
+                        <br/>
+                        2. The Security Council shall hold meetings at which each of its members may, if it so desires, be represented by a member of the government or by some other specially designated representative.
+                        <br/>
+                        3. The Security Council may hold meetings at such places other than the seat of the Organization as in its judgment will best facilitate its work.
+                        <br/>Article 29
+                        <br/>
+                        The Security Council may establish such subsidiary organs as it deems necessary for the performance of its functions.
+                        <br/>Article 30
+                        <br/>
+                        The Security Council shall adopt its own rules of procedure, including the method of selecting its President.
+                        <br/>Article 31
+                        <br/>
+                        Any Member of the United Nations which is not a member of the Security Council may participate, without vote, in the discussion of any question brought before the Security Council whenever the latter considers that the interests of that Member are specially affected.
+                        <br/>Article 32
+                        <br/>
+                        Any Member of the United Nations which is not a member of the Security Council or any state which is not a Member of the United Nations, if it is a party to a dispute under consideration by the Security Council, shall be invited to participate, without vote, in the discussion relating to the dispute. The Security Council shall any down such conditions as it deems just for the participation of a state which is not a Member of the United Nations.
+                    </string>
+                    <string id="charter_chapter6_content">
+                        Article 33
+                        <br/>
+                        1. The parties to any dispute, the continuance of which is likely to endanger the maintenance of international peace and security, shall, first of all, seek a solution by negotiation, enquiry, mediation, conciliation, arbitration, judicial settlement, resort to regional agencies or arrangements, or other peaceful means of their own choice.
+                        <br/>
+                        2. The Security Council shall, when it deems necessary, call upon the parties to settle their dispute by such means.
+                        <br/>Article 34
+                        <br/>
+                        The Security Council may investigate any dispute, or any situation which might lead to international friction or give rise to a dispute, in order to determine whether the continuance of the dispute or situation is likely to endanger the maintenance of international peace and security.
+                        <br/>Article 35
+                        <br/>
+                        1. Any Member of the United Nations may bring any dispute, or any situation of the nature referred to in Article 34, to the attention of the Security Council or of the General Assembly.
+                        <br/>
+                        2. A state which is not a Member of the United Nations may bring to the attention of the Security Council or of the General Assembly any dispute to which it is a party if it accepts in advance, for the purposes of the dispute, the obligations of pacific settlement provided in the present Charter.
+                        <br/>
+                        3. The proceedings of the General Assembly in respect of matters brought to its attention under this Article will be subject to the provisions of Articles 11 and 12.
+                        <br/>Article 36
+                        <br/>
+                        1. The Security Council may, at any stage of a dispute of the nature referred to in Article 33 or of a situation of like nature, recommend appropriate procedures or methods of adjustment.
+                        <br/>
+                        2. The Security Council should take into consideration any procedures for the settlement of the dispute which have already been adopted by the parties.
+                        <br/>
+                        3. In making recommendations under this Article the Security Council should also take into consideration that legal disputes should as a general rule be referred by the parties to the International Court of Justice in accordance with the provisions of the Statute of the Court.
+                        <br/>Article 37
+                        <br/>
+                        1. Should the parties to a dispute of the nature referred to in Article 33 fail to settle it by the means indicated in that Article, they shall refer it to the Security Council.
+                        <br/>
+                        2. If the Security Council deems that the continuance of the dispute is in fact likely to endanger the maintenance of international peace and security, it shall decide whether to take action under Article 36 or to recommend such terms of settlement as it may consider appropriate.
+                        <br/>Article 38
+                        <br/>
+                        Without prejudice to the provisions of Articles 33 to 37, the Security Council may, if all the parties to any dispute so request, make recommendations to the parties with a view to a pacific settlement of the dispute.
+                    </string>
+                    <string id="charter_chapter7_content">
+                        Article 39
+                        <br/>
+                        The Security Council shall determine the existence of any threat to the peace, breach of the peace, or act of aggression and shall make recommendations, or decide what measures shall be taken in accordance with Articles 41 and 42, to maintain or restore international peace and security.
+                        <br/>Article 40
+                        <br/>
+                        In order to prevent an aggravation of the situation, the Security Council may, before making the recommendations or deciding upon the measures provided for in Article 39, call upon the parties concerned to comply with such provisional measures as it deems necessary or desirable. Such provisional measures shall be without prejudice to the rights, claims, or position of the parties concerned. The Security Council shall duly take account of failure to comply with such provisional measures.
+                        <br/>Article 41
+                        <br/>
+                        The Security Council may decide what measures not involving the use of armed force are to be employed to give effect to its decisions, and it may call upon the Members of the United Nations to apply such measures. These may include complete or partial interruption of economic relations and of rail, sea, air, postal, telegraphic, radio, and other means of communication, and the severance of diplomatic relations.
+                        <br/>Article 42
+                        <br/>
+                        Should the Security Council consider that measures provided for in Article 41 would be inadequate or have proved to be inadequate, it may take such action by air, sea, or land forces as may be necessary to maintain or restore international peace and security. Such action may include demonstrations, blockade, and other operations by air, sea, or land forces of Members of the United Nations.
+                        <br/>Article 43
+                        <br/>
+                        1. All Members of the United Nations, in order to contribute to the maintenance of international peace and security, undertake to make available to the Security Council, on its and in accordance with a special agreement or agreements, armed forces, assistance, and facilities, including rights of passage, necessary for the purpose of maintaining international peace and security.
+                        <br/>
+                        2. Such agreement or agreements shall govern the numbers and types of forces, their degree of readiness and general location, and the nature of the facilities and assistance to be provided.
+                        <br/>
+                        3. The agreement or agreements shall be negotiated as soon as possible on the initiative of the Security Council. They shall be concluded between the Security Council and Members or between the Security Council and groups of Members and shall be subject to ratification by the signatory states in accordance with their respective constitutional processes.
+                        <br/>Article 44
+                        <br/>
+                        When Security Council has decided to use force it shall, before calling upon a Member not represented on it to provide armed forces in fulfilment of the obligations assumed under Article 43, invite that Member, if the Member so desires, to participate in the decisions of the Security Council concerning the employment of contingents of that Member\'s armed forces.
+                        <br/>Article 45
+                        <br/>
+                        In order to enable the Nations to take urgent military measures, Members shall hold immediately available national air-force contingents for combined international enforcement action. The strength and degree of readiness of these contingents and plans for their combined action shall be determined, within the limits laid down in the special agreement or agreements referred to in Article 43, by the Security Council with the assistance of the Military Committee.
+                        <br/>Article 46
+                        <br/>
+                        Plans for the application of armed force shall be made by the Security Council with the assistance of the Military Staff Committee.
+                        <br/>Article 47
+                        <br/>
+                        1. There shall be established a Military Staff Committee to advise and assist the Security Council on questions relating to the Security Council\'s military requirements for the maintenance of international peace and security, the employment and command of forces placed at its disposal, the regulation of armaments, and possible disarmament.
+                        <br/>
+                        2. The Military Staff Committee consist of the Chiefs of Staff of the permanent members of the Security Council or their representatives. Any Member of the United Nations not permanently represented on the Committee shall be invited by the Committee to be associated with it when the efficient discharge of the Committee\'s responsibilities re- quires the participation of that Member its work.
+                        <br/>
+                        3. The Military Staff Committee be responsible under the Security Council for the strategic direction of any armed forces paced at the disposal of the Security Council. Questions relating to the command of such forces shall be worked out subsequently.
+                        <br/>
+                        4. The Military Staff Committee, with the authorization of the security Council and after consultation with appropriate regional agencies, may establish sub-commit- tees.
+                        <br/>Article 48
+                        <br/>
+                        1. The action required to carry out the decisions of the Security Council for the maintenance of international peace and security shall be taken by all the Members of the United Nations or by some of them, as the Security Council may determine.
+                        <br/>
+                        2. Such decisions shall be carried out by the Members of the United Nations directly and through their action in the appropriate international agencies of which they are members.
+                        <br/>Article 49
+                        <br/>
+                        The Members of the United Nations shall join in affording mutual assistance in carrying out the measures decided upon by the Security Council.
+                        <br/>Article 50
+                        <br/>
+                        If preventive or enforcement measures against any state are taken by the Security Council, any other state, whether a Member of the United Nations or not, which finds itself confronted with special economic problems arising from the carrying out of those measures shall have the right to consult the Security Council with regard to a solution of those problems.
+                        <br/>Article 51
+                        <br/>
+                        Nothing in the present Charter shall impair the inherent right of individual or collective self-defence if an armed attack occurs against a Member of the United Nations, until the Security Council has taken measures necessary to maintain international peace and security. Measures taken by Members in the exercise of this right of self-defence shall be immediately reported to the Security Council and shall not in any way affect the authority and responsibility of the Security Council under the present Charter to take at any time such action as it deems necessary in order to maintain or restore international peace and security.
+                    </string>
+                    <string id="charter_chapter8_content">
+                        Article 52
+                        <br/>
+                        1. Nothing in the present Charter the existence of regional arrangements or agencies for dealing with such matters relating to the maintenance of international peace and security as are appropriate for regional action, provided that such arrangements or agencies and their activities are consistent with the Purposes and Principles of the United Nations.
+                        <br/>
+                        2. The Members of the United Nations entering into such arrangements or constituting such agencies shall make every effort to achieve pacific settlement of local disputes through such regional arrangements or by such regional agencies before referring them to the Security Council.
+                        <br/>
+                        3. The Security Council shall encourage the development of pacific settlement of local disputes through such regional arrangements or by such regional agencies either on the initiative of the states concerned or by reference from the Security Council.
+                        <br/>
+                        4. This Article in no way the application of Articles 34 and 35.
+                        <br/>Article 53
+                        <br/>
+                        1. The Security Council shall, where appropriate, utilize such regional arrangements or agencies for enforcement action under its authority. But no enforcement action shall be taken under regional arrangements or by regional agencies without the authorization of the Security Council, with the exception of measures against any enemy state, as defined in paragraph 2 of this Article, provided for pursuant to Article 107 or in regional arrangements directed against renewal of aggressive policy on the part of any such state, until such time as the Organization may, on request of the Governments concerned, be charged with the responsibility for preventing further aggression by such a state.
+                        <br/>
+                        2. The term enemy state as used in para- graph 1 of this Article applies to any state which during the Second World War has been an enemy of any signatory of the present Charter.
+                        <br/>Article 54
+                        <br/>
+                        The Security Council shall at all times be kept fully informed of activities undertaken or in contemplation under regional arrangements or by regional agencies for the maintenance of international peace and security.
+                    </string>
+                    <string id="charter_chapter9_content">
+                        Article 55
+                        <br/>
+                        With a view to the creation of conditions of stability and well-being which are necessary for peaceful and friendly relations among nations based on respect for the principle of equal rights and self-determination of peoples, the United Nations shall promote:
+                        <br/>
+                        a. higher standards of living, full employment, and conditions of economic and social progress and development;
+                        <br/>
+                        b. solutions of international economic, social, health, and related problems; and international cultural and educational co- operation; and
+                        <br/>
+                        c. universal respect for, and observance of, human rights and fundamental freedoms for all without distinction as to race, sex, language, or religion.
+                        <br/>Article 56
+                        <br/>All Members pledge themselves to take joint and separate action in co-operation with the Organization for the achievement of the purposes set forth in Article 55.
+                        <br/>Article 57
+                        <br/>
+                        1. The various specialized agencies, established by intergovernmental agreement and having wide international responsibilities, as defined in their basic instruments, in economic, social, cultural, educational, health, and related fields, shall be brought into relationship with the United Nations in accordance with the provisions of Article 63.
+                        <br/>
+                        2. Such agencies thus brought into relationship with the United Nations are hereinafter referred to as specialized agencies.
+                        <br/>Article 58
+                        <br/>
+                        The Organization shall make recommendations for the co-ordination of the policies and activities of the specialized agencies.
+                        <br/>Article 59
+                        <br/>
+                        The Organization shall, where appropriate, initiate negotiations among the states concerned for the creation of any new specialized agencies required for the accomplishment of the purposes set forth in Article 55.
+                        <br/>Article 60
+                        <br/>
+                        Responsibility for the discharge of the functions of the Organization set forth in this Chapter shall be vested in the General Assembly and, under the authority of the General Assembly, in the Economic and Social Council, which shall have for this purpose the powers set forth in Chapter X.
+                    </string>
+                    <string id="charter_chapter10_content">
+                        Composition
+                        <br/>Article 61
+                        <br/>
+                        1. The Economic and Social Council shall consist of fifty-four Members of the United Nations elected by the General Assembly.
+                        <br/>
+                        2. Subject to the provisions of paragraph 3, eighteen members of the Economic and Social Council shall be elected each year for a term of three years. A retiring member shall be eligible for immediate re-election.
+                        <br/>
+                        3. At the first election after the increase in the membership of the Economic and Social Council from twenty-seven to fifty-four members, in addition to the members elected in place of the nine members whose term of office expires at the end of that year, twenty-seven additional members shall be elected. Of these twenty-seven additional members, the term of office of nine members so elected shall expire at the end of one year, and of nine other members at the end of two years, in accordance with arrangements made by the General Assembly.
+                        <br/>
+                        4. Each member of the Economic and Social Council shall have one representative.
+                        <br/>Functions and Powers
+                        <br/>Article 62
+                        <br/>
+                        1. The Economic and Social Council may make or initiate studies and reports with respect to international economic, social, cultural, educational, health, and related matters and may make recommendations with respect to any such matters to the General Assembly, to the Members of the United Nations, and to the specialized agencies concerned.
+                        <br/>
+                        2. It may make recommendations for the purpose of promoting respect for, and observance of, human rights and fundamental freedoms for all.
+                        <br/>
+                        3. It may prepare draft conventions for submission to the General Assembly, with respect to matters falling within its competence.
+                        <br/>
+                        4. It may call, in accordance with the rules prescribed by the United Nations, international conferences on matters falling within its competence.
+                        <br/>Article 63
+                        <br/>
+                        1. The Economic and Social Council may enter into agreements with any of the agencies referred to in Article 57, defining the terms on which the agency concerned shall be brought into relationship with the United Nations. Such agreements shall be subject to approval by the General Assembly.
+                        <br/>
+                        2. It may co-ordinate the activities of the specialized agencies through consultation with and recommendations to such agencies and through recommendations to the General Assembly and to the Members of the United Nations.
+                        <br/>Article 64
+                        <br/>
+                        1. The Economic and Social Council may take appropriate steps to obtain regular reports from the specialized agencies. may make arrangements with the Members of the United Nations and with the specialized agencies to obtain reports on the steps taken to give effect to its own recommendations and to recommendations on matters falling within its competence made by the General Assembly.
+                        <br/>
+                        2. It may communicate its observations on these reports to the General Assembly.
+                        <br/>Article 65
+                        <br/>
+                        The Economic and Social Council may furnish information to the Security Council and shall assist the Security Council upon its request.
+                        <br/>Article 66
+                        <br/>
+                        1. The Economic and Social Council shall perform such functions as fall within its competence in connexion with the carrying out of the recommendations of the General Assembly.
+                        <br/>
+                        2. It may, with the approval of the General Assembly, perform services at the request of Members of the United Nations and at the request of specialized agencies.
+                        <br/>
+                        3. It shall perform such other functions as are specified elsewhere in the present Charter or as may be assigned to it by the General Assembly.
+                        Voting
+                        <br/>Article 67
+                        <br/>
+                        1. Each member of the Economic and Social Council shall have one vote.
+                        <br/>
+                        2. Decisions of the Economic and Social Council shall be made by a majority of the members present and voting.
+                        Procedure
+                        <br/>Article 68
+                        <br/>
+                        The Economic and Social Council shall set up commissions in economic and social fields and for the promotion of human rights, and such other commissions as may for the performance of its functions.
+                        <br/>Article 69
+                        <br/>
+                        The Economic and Social Council shall invite any Member of the United Nations to participate, without vote, in its deliberations on any matter of particular concern to that Member.
+                        <br/>Article 70
+                        <br/>
+                        The Economic and Social Council may make arrangements for representatives of the specialized agencies to participate, without vote, in its deliberations and in those of the commissions established by it, and for its representatives to participate in the deliberations of the specialized agencies.
+                        <br/>Article 71
+                        <br/>
+                        The Economic and Social Council may make suitable arrangements for consultation with non-governmental organizations which are concerned with matters within its competence. Such arrangements may be made with international organizations and, where appropriate, with national organizations after consultation with the Member of the United Nations concerned.
+                        <br/>Article 72
+                        <br/>
+                        1. The Economic and Social Council shall adopt its own rules of procedure, including the method of selecting its President.
+                        <br/>
+                        2. The Economic and Social Council shall meet as required in accordance with its rules, which shall include provision for the convening of meetings on the request of a majority of its members.
+                    </string>
+                    <string id="charter_chapter11_content">
+                        Article 73
+                        <br/>Members of the United Nations which have or assume responsibilities for the administration of territories whose peoples have not yet attained a full measure of self-government recognize the principle that the interests of the inhabitants of these territories are paramount, and accept as a sacred trust the obligation to promote to the utmost, within the system of international peace and security established by the present Charter, the well- being of the inhabitants of these territories, and, to this end:
+                        <br/>
+                        a. to ensure, with due respect for the culture of the peoples concerned, their political, economic, social, and educational advancement, their just treatment, and their protection against abuses;
+                        <br/>
+                        b. to develop self-government, to take due account of the political aspirations of the peoples, and to assist them in the progressive development of their free political institutions, according to the particular circumstances of each territory and its peoples and their varying stages of advancement;
+                        <br/>
+                        c. to further international peace and security;
+                        <br/>
+                        d. to promote constructive measures of development, to encourage research, and to co-operate with one another and, when and where appropriate, with specialized international bodies with a view to the practical achievement of the social, eco- nomic, and scientific purposes set forth in this Article; and
+                        <br/>
+                        e. to transmit regularly to the Secretary- General for information purposes, subject to such limitation as security and constitutional considerations may require, statistical and other information of a technical nature relating to economic, social, and educational conditions in the territories for which they are respectively responsible other than those territories to which Chapters XII and XIII apply.
+                        <br/>Article 74
+                        <br/>
+                        Members of the United Nations also agree that their policy in respect of the territories to which this Chapter applies, no less than in respect of their metropolitan areas, must be based on the general principle of good-neigh-bourliness, due account being taken of the interests and well-being of the rest of the world, in social, economic, and commercial matters.
+                    </string>
+                    <string id="charter_chapter12_content">
+                        Article 75
+                        <br/>
+                        The United Nations shall establish under its authority an international trusteeship system for the administration and supervision of such territories as may be placed thereunder by subsequent individual agreements. These territories are hereinafter referred to as trust territories.
+                        <br/>Article 76
+                        <br/>
+                        The basic objectives of the trusteeship system, in accordance with the Purposes of the United Nations laid down in Article 1 of the present Charter, shall be:
+                        <br/>
+                        a. to further international peace and security;
+                        <br/>
+                        b. to promote the political, economic, social, and educational advancement of the inhabitants of the trust territories, and their progressive development towards self-government or independence as may be appropriate to the particular circumstances of each territory and its peoples and the freely expressed wishes of the peoples concerned, and as may be provided by the terms of each trusteeship agreement;
+                        <br/>
+                        c. to encourage respect for human rights and for fundamental freedoms for all with- out : as to race, sex, language, or religion, and to encourage recognition of the interdependence of the peoples of the world; and
+                        <br/>
+                        d. to ensure equal treatment in social, economic, and commercial matters for all Members of the United Nations and their , and also equal treatment for the latter in the administration of justice, with- out prejudice to the attainment of the fore- going objectives and subject to the provisions of Article 80.
+                        <br/>Article 77
+                        <br/>
+                        1. The trusteeship system shall apply to such territories in the following categories as may be placed thereunder by means of trusteeship agreements:
+                        <br/>
+                        a. territories now held under mandate;
+                        <br/>
+                        b. territories which may be detached from enemy states as a result of the Second World War; and
+                        <br/>
+                        c. territories voluntarily placed under the system by states responsible for their administration.
+                        <br/>
+                        2. It will be a matter for subsequent agreement as to which territories in the foregoing categories will be brought under the trustee- ship system and upon what terms.
+                        <br/>Article 78
+                        <br/>
+                        The trusteeship system shall not apply to territories which have become Members of the United Nations, relationship among which shall be based on respect for the principle of sovereign equality.
+                        <br/>Article 79
+                        <br/>
+                        The terms of trusteeship for each territory to be placed under the trusteeship system, including any alteration or amendment, shall be agreed upon by the states directly concerned, including the mandatory power in the case of territories held under mandate by a Member of the United Nations, and shall be approved as provided for in Articles 83 and 85.
+                        <br/>Article 80
+                        <br/>
+                        1. Except as may be agreed upon in individual trusteeship agreements, made under Articles 77, 79, and 81, placing each territory under the trusteeship system, and until such agreements have been concluded, nothing in this Chapter shall be construed in or of itself to alter in any manner the rights whatsoever of any states or any peoples or the terms of existing international instruments to which Members of the United Nations may respectively be parties.
+                        <br/>
+                        2. Paragraph 1 of this Article shall not be interpreted as giving grounds for delay or postponement of the negotiation and conclusion of agreements for placing mandated and other territories under the trusteeship system as provided for in Article 77.
+                        <br/>Article 81
+                        <br/>
+                        The trusteeship agreement shall in each case include the terms under which the trust territory will be administered and designate the authority which will exercise the administration of the trust territory. Such authority, hereinafter called the administering authority, may be one or more states or the Organization itself.
+                        <br/>Article 82
+                        <br/>
+                        There may be designated, in any trusteeship agreement, a strategic area or areas which may include part or all of the trust territory to which the agreement applies, without prejudice to any special agreement or agreements made under Article 43.
+                        <br/>Article 83
+                        <br/>
+                        1. All functions of the United Nations relating to strategic areas, including the approval of the terms of the trusteeship agreements and of their alteration or amendment, shall be exercised by the Security Council.
+                        <br/>
+                        2. he basic objectives set forth in Article 76 shall be applicable to the people of each strategic area. 43 3. The Security Council shall, subject to the provisions of the trusteeship agreements and without prejudice to security considerations, avail itself of the assistance of the Trusteeship Council to perform those functions of the United Nations under the trusteeship system relating to political, economic, social, and educational matters in the strategic areas.
+                        <br/>Article 84
+                        <br/>
+                        It shall be the duty of the administering authority to ensure that the trust territory shall play its part in the maintenance of international peace and security. To this end the administering authority may make use of volunteer forces, facilities, and assistance from the trust territory in carrying out the obligations towards the Security Council undertaken in this regard by the administering authority, as well as for local defence and the maintenance of law and order within the trust territory.
+                        <br/>Article 85
+                        <br/>
+                        1. The functions of the United Nations with regard to trusteeship agreements for all areas not designated as strategic, including the approval of the terms of the trusteeship agreements and of their alteration or amendment, shall be exercised by the General Assembly.
+                        <br/>
+                        2. The Trusteeship Council, operating under the authority of the General Assembly, shall assist the General Assembly in carrying out these functions.
+                    </string>
+                    <string id="charter_chapter13_content">
+                        Composition
+                        <br/>Article 86 <br/>1. The Trusteeship Council shall consist of the following Members of the United Nations:
+                        <br/>
+                        a. those Members administering trust territories;
+                        <br/>
+                        b. such of those Members mentioned by name in Article 23 as are not administering trust territories; and
+                        <br/>
+                        c. as many other Members elected for three-year terms by the General Assembly as may be necessary to ensure that the total number of members of the Trusteeship Council is equally divided between those Members of the United Nations which ad- minister trust territories and those which do not.
+                        <br/>
+                        2. Each member of the Trusteeship Council shall designate one specially qualified person to represent it therein.
+                        <br/>Functions and Powers
+                        <br/>Article 87
+                        <br/>
+                        The General Assembly and, under its authority, the Trusteeship Council, in carrying out their functions, may:
+                        <br/>
+                        a. consider reports submitted by the ad- ministering authority;
+                        <br/>
+                        b. accept petitions and examine them in consultation with the administering authority;
+                        <br/>
+                        c. provide for periodic visits to the respective trust territories at times agreed upon with the administering authority; and
+                        <br/>
+                        d. take these and other actions in conformity with the terms of the trusteeship agreements.
+                        <br/>Article 88
+                        <br/>
+                        The Trusteeship Council shall formulate a questionnaire on the political, economic, social, and educational advancement of the inhabitants of each trust territory, and the administering authority for each trust territory within the competence of the General Assembly shall make an annual report to the General Assembly upon the basis of such questionnaire.
+                        <br/>Voting
+                        <br/>Article 89
+                        <br/>
+                        1. Each member of the Trusteeship Council shall have one vote.
+                        <br/>
+                        2. Decisions of the Trusteeship Council shall be made by a majority of the members present and voting.
+                        <br/>Procedure
+                        <br/>Article 90
+                        <br/>
+                        1. The Trusteeship Council shall adopt its own rules of procedure, including the method of selecting its President.
+                        <br/>
+                        2. The Trusteeship Council shall meet as required in accordance with its rules, which shall include provision for the convening of meetings on the request of a majority of its members.
+                        <br/>Article 91
+                        <br/>
+                        The Trusteeship Council shall, when appropriate, avail itself of the assistance of the Economic and Social Council and of the specialized agencies in regard to matters with which they are respectively concerned.
+                    </string>
+                    <string id="charter_chapter14_content">
+                        Article 92
+                        <br/>
+                        The International Court of Justice shall be the principal judicial organ of the United Nations. It shall function in accordance with the annexed Statute, which is based upon the Statute of the Permanent Court of International Justice and forms an integral part of the present Charter.
+                        <br/>Article 93
+                        <br/>
+                        1. All Members of the United Nations are facto parties to the Statute of the International Court of Justice.
+                        <br/>
+                        2. A state which is not a Member of the United Nations may become a party to the Statute of the International Court of Justice on to be determined in each case by the General Assembly upon the recommendation of the Security Council.
+                        <br/>Article 94
+                        <br/>
+                        1. Each Member of the United Nations undertakes to comply with the decision of the International Court of Justice in any case to which it is a party.
+                        <br/>
+                        2. If any party to a case fails to perform the obligations incumbent upon it under a judgment rendered by the Court, the other party may have recourse to the Security Council, which may, if it deems necessary, make recommendations or decide upon measures to be taken to give effect to the judgment.
+                        <br/>Article 95
+                        <br/>
+                        Nothing in the present Charter shall prevent Members of the United Nations from entrusting the solution of their differences to other tribunals by virtue of agreements already in existence or which may be concluded in the future.
+                        <br/>Article 96
+                        <br/>
+                        1. The General Assembly or the Security Council may request the International Court of Justice to give an advisory opinion on any legal question.
+                        <br/>
+                        2. Other organs of the United Nations and specialized agencies, which may at any time be so authorized by the General Assembly, may also request advisory opinions of the Court on legal questions arising within the scope of their activities.
+                    </string>
+                    <string id="charter_chapter15_content">
+                        Article 97
+                        <br/>
+                        The Secretariat shall comprise a Secretary- General and such staff as the Organization may require. The Secretary-General shall be appointed by the General Assembly upon the recommendation of the Security Council. He shall be the chief administrative officer of the Organization.
+                        <br/>Article 98
+                        <br/>
+                        The Secretary-General shall act in that capacity in all meetings of the General Assembly, of the Security Council, of the Economic and Social Council, and of the Trusteeship Council, and shall perform such other functions as are entrusted to him by these organs. The Secretary-General shall make an annual report to the General Assembly on the work of the Organization.
+                        <br/>Article 99
+                        <br/>
+                        The Secretary-General may bring to the attention of the Security Council any matter which in his opinion may threaten the maintenance of international peace and security.
+                        <br/>Article 100
+                        <br/>
+                        1. In the performance of their duties the Secretary-General and the staff shall not seek or receive instructions from any government or from any other authority external to the Organization. They shall refrain from any action which might on their position as international officials responsible only to the Organization.
+                        <br/>
+                        2. Each Member of the United Nations undertakes to respect the exclusively inter- national character of the responsibilities of the Secretary-General and the staff and not to seek to influence them in the discharge of their responsibilities.
+                        <br/>Article 101
+                        <br/>
+                        1. The staff shall be appointed by the Secretary-General under regulations established by the General Assembly.
+                        <br/>
+                        2. Appropriate staffs shall be permanently assigned to the Economic and Social Council, the Trusteeship Council, and, as required, to other organs of the United Nations. These staffs shall form a part of the Secretariat.
+                        <br/>
+                        3. The paramount consideration in the employment of the staff and in the determination of the conditions of service shall be the necessity of securing the highest standards of efficiency, competence, and integrity. Due regard shall be paid to the importance of recruiting the staff on as wide a geographical basis as possible.
+                    </string>
+                    <string id="charter_chapter16_content">
+                        Article 102
+                        <br/>
+                        1. Every treaty and every international agreement entered into by any Member of the United Nations after the present Charter comes into force shall as soon as possible be registered with the Secretariat and published by it.
+                        <br/>
+                        2. No party to any such treaty or international agreement which has not been registered in accordance with the provisions of paragraph I of this Article may invoke that treaty or agreement before any organ of the United Nations.
+                        <br/>Article 103
+                        <br/>
+                        In the event of a conflict between the obligations of the Members of the United Nations under the present Charter and their obligations under any other international agreement, their obligations under the present Charter shall prevail.
+                        <br/>Article 104
+                        <br/>
+                        The Organization shall enjoy in the territory of each of its Members such legal capacity as may be necessary for the exercise of its functions and the fulfilment of its purposes.
+                        <br/>Article 105
+                        <br/>
+                        1. The Organization shall enjoy in the territory of each of its Members such privileges and immunities as are necessary for the fulfilment of its purposes.
+                        <br/>
+                        2. Representatives of the Members of the United Nations and officials of the Organization shall similarly enjoy such privileges and immunities as are necessary for the independent exercise of their functions in connexion with the Organization.
+                        <br/>
+                        3. The General Assembly may make recommendations with a view to determining the details of the application of paragraphs 1 and 2 of this Article or may propose conventions to the Members of the United Nations for this purpose.
+                    </string>
+                    <string id="charter_chapter17_content">
+                        Article 106
+                        <br/>
+                        Pending the coming into force of such special agreements referred to in Article 43 as in the opinion of the Security Council enable it to begin the exercise of its responsibilities under Article 42, the parties to the Four-Nation Declaration, signed at Moscow, 30 October 1943, and France, shall, in accordance with the provisions of paragraph 5 of that Declaration, consult with one another and as occasion requires with other Members of the United Nations with a view to such joint action on behalf of the Organization as may be necessary for the purpose of maintaining international peace and security.
+                        <br/>
+                        Article 107 <br/>Nothing in the present Charter shall in- validate or preclude action, in relation to any state which during the Second World War has been an enemy of any signatory to the present Charter, taken or authorized as a result of that war by the Governments having responsibility for such action.
+                    </string>
+                    <string id="charter_chapter18_content">
+                        Article 108
+                        <br/>
+                        Amendments to the present Charter shall come into force for all Members of the United Nations when they have been adopted by a vote of two thirds of the members of the General Assembly and ratified in accordance with their respective constitutional processes by two thirds of the Members of the United Nations, including all the permanent members of the Security Council.
+                        <br/>Article 109
+                        <br/>
+                        1. A General Conference of the Members of the United Nations for the purpose of reviewing the present Charter may be held at a date and place to be fixed by a two-thirds vote of the members of the General Assembly and by a vote of any nine members of the Security Council. Each Member of the United Nations shall have one vote in the conference.
+                        <br/>
+                        2. Any alteration of the present Charter recommended by a two-thirds vote of the conference shall take effect when ratified in accordance with their respective constitutional processes by two thirds of the Members of the United Nations including the permanent members of the Security Council.
+                        <br/>
+                        3. If such a conference has not been held before the tenth annual session of the General Assembly following the coming into force of the present Charter, the proposal to call such a conference shall be placed on the agenda of that session of the General Assembly, and the conference shall be held if so decided by a majority vote of the members of the General Assembly and by a vote of any seven members of the Security Council.
+                    </string>
+                    <string id="charter_chapter19_content">
+                        Article 110
+                        <br/>
+                        1. The present Charter shall be ratified by the signatory states in accordance with their respective constitutional processes.
+                        <br/>
+                        2. The shall be deposited with the Government of the Unite States of America, which shall notify all the signatory states of each deposit as well as the Secretary-General of the Organization when he has been appointed.
+                        <br/>
+                        3. The present Charter shall come into force upon the deposit of by the Republic of China, France, the Union of Soviet Socialist, the United King- dom of Great Britain and Northern Ireland, and the United States of America, and by a majority of the other signatory states. A protocol of the deposited shall thereupon be drawn up by the Government of the United States of America which shall communicate copies thereof to all the signa- tory states.
+                        <br/>
+                        4. The states signatory to the present Charter which ratify it after it has come into force will become original Members of the United Nations on the date of the deposit of their respective ratifications.
+                        <br/>Article 111
+                        <br/>
+                        The present Charter, of which the Chinese, French, Russian, English, and Spanish texts are equally authentic, shall remain deposited in the archives of the Government of -the United States of America. Duly certified copies thereof shall be transmitted by that Government to the Governments of the other signatory states.
+                        <br/>
+                        IN FAITH WHEREOF the representatives of the Governments of the United Nations have signed the present Charter.
+                        <br/>
+                        DONE at the city of San Francisco the twenty-sixth day of June, one thousand nine hundred and forty-five.
+
+                </div>
+                <div id="DHR" class="win-scrollview" style="overflow-y: scroll;">
+                    Preamble<br/><br/>
+                    Whereas recognition of the inherent dignity and of the equal and inalienable rights of all members of the human family is the foundation of freedom, justice and peace in the world,<br/>
+                
+                    Whereas disregard and contempt for human rights have resulted in barbarous acts which have outraged the conscience of mankind, and the advent of a world in which human beings shall enjoy freedom of speech and belief and freedom from fear and want has been proclaimed as the highest aspiration of the common people,<br />
+                
+                    Whereas it is essential, if man is not to be compelled to have recourse, as a last resort, to rebellion against tyranny and oppression, that human rights should be protected by the rule of law,<br />
+                
+                    Whereas it is essential to promote the development of friendly relations between nations,<br />
+                
+                    Whereas the peoples of the United Nations have in the Charter reaffirmed their faith in fundamental human rights, in the dignity and worth of the human person and in the equal rights of men and women and have determined to promote social progress and better standards of life in larger freedom,<br />
+                
+                    Whereas Member States have pledged themselves to achieve, in co-operation with the United Nations, the promotion of universal respect for and observance of human rights and fundamental freedoms,<br />
+                
+                    Whereas a common understanding of these rights and freedoms is of the greatest importance for the full realization of this pledge,<br /><br />
+                
+                    Now, Therefore THE GENERAL ASSEMBLY proclaims THIS UNIVERSAL DECLARATION OF HUMAN RIGHTS as a common standard of achievement for all peoples and all nations, to the end that every individual and every organ of society, keeping this Declaration constantly in mind, shall strive by teaching and education to promote respect for these rights and freedoms and by progressive measures, national and international, to secure their universal and effective recognition and observance, both among the peoples of Member States themselves and among the peoples of territories under their jurisdiction.<br /><br />
+                    Article 1.<br /><br />
+                
+                    All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.<br /><br />
+                    Article 2.<br /><br />
+                
+                    Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status. Furthermore, no distinction shall be made on the basis of the political, jurisdictional or international status of the country or territory to which a person belongs, whether it be independent, trust, non-self-governing or under any other limitation of sovereignty.<br /><br />
+                    Article 3.<br /><br />
+                
+                    Everyone has the right to life, liberty and security of person.<br /><br />
+                    Article 4.<br /><br />
+                
+                    No one shall be held in slavery or servitude; slavery and the slave trade shall be prohibited in all their forms.<br /><br />
+                    Article 5.<br /><br />
+                
+                    No one shall be subjected to torture or to cruel, inhuman or degrading treatment or punishment.<br /><br />
+                    Article 6.<br /><br />
+                
+                    Everyone has the right to recognition everywhere as a person before the law.<br /><br />
+                    Article 7.<br /><br />
+                
+                    All are equal before the law and are entitled without any discrimination to equal protection of the law. All are entitled to equal protection against any discrimination in violation of this Declaration and against any incitement to such discrimination.<br /><br />
+                    Article 8.<br /><br />
+                
+                    Everyone has the right to an effective remedy by the competent national tribunals for acts violating the fundamental rights granted him by the constitution or by law.<br /><br />
+                    Article 9.<br /><br />
+                
+                    No one shall be subjected to arbitrary arrest, detention or exile.<br /><br />
+                    Article 10.<br /><br />
+                
+                    Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him.<br /><br />
+                    Article 11.
+                    <br /><br />
+                    (1) Everyone charged with a penal offence has the right to be presumed innocent until proved guilty according to law in a public trial at which he has had all the guarantees necessary for his defence.<br />
+                    (2) No one shall be held guilty of any penal offence on account of any act or omission which did not constitute a penal offence, under national or international law, at the time when it was committed. Nor shall a heavier penalty be imposed than the one that was applicable at the time the penal offence was committed.<br />
+                    Article 12.<br /><br />
+                
+                    No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks.<br />
+                    Article 13.<br /><br />
+                
+                    (1) Everyone has the right to freedom of movement and residence within the borders of each state.<br /><br />
+                    (2) Everyone has the right to leave any country, including his own, and to return to his country<br /><br />
+                    Article 14.<br /><br />
+                
+                    (1) Everyone has the right to seek and to enjoy in other countries asylum from persecution.<br /><br />
+                    (2) This right may not be invoked in the case of prosecutions genuinely arising from non-political crimes or from acts contrary to the purposes and principles of the United Nations.<br /><br />
+                    Article 15.<br /><br />
+                
+                    (1) Everyone has the right to a nationality.<br /><br />
+                    (2) No one shall be arbitrarily deprived of his nationality nor denied the right to change his nationality.<br /><br />
+                    Article 16.<br /><br />
+                
+                    (1) Men and women of full age, without any limitation due to race, nationality or religion, have the right to marry and to found a family. They are entitled to equal rights as to marriage, during marriage and at its dissolution.<br /><br />
+                    (2) Marriage shall be entered into only with the free and full consent of the intending spouses.<br /><br />
+                    (3) The family is the natural and fundamental group unit of society and is entitled to protection by society and the State.<br /><br />
+                    Article 17.<br /><br />
+                
+                    (1) Everyone has the right to own property alone as well as in association with others.<br /><br />
+                    (2) No one shall be arbitrarily deprived of his property<br /><br />
+                    Article 18.<br /><br />
+                
+                    Everyone has the right to freedom of thought, conscience and religion; this right includes freedom to change his religion or belief, and freedom, either alone or in community with others and in public or private, to manifest his religion or belief in teaching, practice, worship and observance.<br /><br />
+                    Article 19.<br /><br />
+                
+                    Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers.<br /><br />
+                    Article 20.<br /><br />
+                
+                    (1) Everyone has the right to freedom of peaceful assembly and association.<br /><br />
+                    (2) No one may be compelled to belong to an association.<br /><br />
+                    Article 21<br /><br />
+                
+                    (1) Everyone has the right to take part in the government of his country, directly or through freely chosen representatives.<br /><br />
+                    (2) Everyone has the right of equal access to public service in his country.<br /><br />
+                    (3) The will of the people shall be the basis of the authority of government; this will shall be expressed in periodic and genuine elections which shall be by universal and equal suffrage and shall be held by secret vote or by equivalent free voting procedures.<br /><br />
+                    Article 22.<br /><br />
+                
+                    Everyone, as a member of society, has the right to social security and is entitled to realization, through national effort and international co-operation and in accordance with the organization and resources of each State, of the economic, social and cultural rights indispensable for his dignity and the free development of his personality.<br /><br />
+                    Article 23.<br /><br />
+                
+                    (1) Everyone has the right to work, to free choice of employment, to just and favourable conditions of work and to protection against unemployment.<br /><br />
+                    (2) Everyone, without any discrimination, has the right to equal pay for equal work.<br /><br />
+                    (3) Everyone who works has the right to just and favourable remuneration ensuring for himself and his family an existence worthy of human dignity, and supplemented, if necessary, by other means of social protection.<br /><br />
+                    (4) Everyone has the right to form and to join trade unions for the protection of his interests.<br /><br />
+                    Article 24.<br /><br />
+                
+                    Everyone has the right to rest and leisure, including reasonable limitation of working hours and periodic holidays with pay.<br /><br />
+                    Article 25.<br /><br />
+                
+                    (1) Everyone has the right to a standard of living adequate for the health and well-being of himself and of his family, including food, clothing, housing and medical care and necessary social services, and the right to security in the event of unemployment, sickness, disability, widowhood, old age or other lack of livelihood in circumstances beyond his control.<br /><br />
+                    (2) Motherhood and childhood are entitled to special care and assistance. All children, whether born in or out of wedlock, shall enjoy the same social protection.<br /><br />
+                    Article 26.<br /><br />
+                
+                    (1) Everyone has the right to education. Education shall be free, at least in the elementary and fundamental stages. Elementary education shall be compulsory. Technical and professional education shall be made generally available and higher education shall be equally accessible to all on the basis of merit.<br /><br />
+                    (2) Education shall be directed to the full development of the human personality and to the strengthening of respect for human rights and fundamental freedoms. It shall promote understanding, tolerance and friendship among all nations, racial or religious groups, and shall further the activities of the United Nations for the maintenance of peace.<br /><br />
+                    (3) Parents have a prior right to choose the kind of education that shall be given to their children.<br /><br />
+                    Article 27.
+                
+                    (1) Everyone has the right freely to participate in the cultural life of the community, to enjoy the arts and to share in scientific advancement and its benefits.<br /><br />
+                    (2) Everyone has the right to the protection of the moral and material interests resulting from any scientific, literary or artistic production of which he is the author.<br /><br />
+                    Article 28.<br /><br />
+                
+                    Everyone is entitled to a social and international order in which the rights and freedoms set forth in this Declaration can be fully realized.<br /><br />
+                    Article 29.<br /><br />
+                
+                    (1) Everyone has duties to the community in which alone the free and full development of his personality is possible.<br /><br />
+                    (2) In the exercise of his rights and freedoms, everyone shall be subject only to such limitations as are determined by law solely for the purpose of securing due recognition and respect for the rights and freedoms of others and of meeting the just requirements of morality, public order and the general welfare in a democratic society.<br /><br />
+                    (3) These rights and freedoms may in no case be exercised contrary to the purposes and principles of the United Nations.<br /><br />
+                    Article 30.<br /><br />
+                
+                    Nothing in this Declaration may be interpreted as implying for any State, group or person any right to engage in any activity or to perform any act aimed at the destruction of any of the rights and freedoms set forth herein.<br /><br />
+
+                </div>
+            </div>
+        </div>
+
+         <div id="YLC" class="win-scrollview" style="display : 'none'; width:90%; padding-left:5%">
+             <div id="chumma" style="overflow-y: scroll" class="win-scrollview" >
+                 <h3>About Us</h3>
+                 <p>
+                     Young Leaders’ Consortium or YLC as the name suggests is a gathering of young student leaders
+                     from diverse educational fields who can share their skills,
+                     experience, knowledge among themselves and spread it to various student communities in India,
+                     as thus provide exposure of leadership to all parts of the country.
+                 </p>
+                 <h3>Aim</h3>
+                 <p>
+                     YLC aims to offer a lively and memorable learning opportunity for students seeking a supplement
+                     to their education and develop the leadership skills within them by nurturing the traits required
+                     for attaining excellence through a wide variety of well planned activities in a challenging environment
+                     and by giving them exposure of various leadership programs.
+                 </p>
+                 <h3>Vision</h3>
+                 <p>
+                     In  a country like India, talent is plenty but opportunities are very less and YLC wants to provide
+                     this opportunity to the students in India. The goal of YLC is to work extensively towards the 
+                     aspiration of modern youth, especially through the continued expansion and enhancement of the 
+                     organization through national and international collaborations.
+                 </p>
+                 <h3>Mission</h3>
+                 <p>
+                     YLC focuses for the promotion of student interest in international relations and related subjects, 
+                     the increase in capacity for students to engage in problem solving, the teaching of various conflict 
+                     resolution methods, research skills, and communication skills, and the creation of opportunities to 
+                     meet and interact with people from diverse fields and build long lasting relationships among the youth 
+                     community.
+                 </p>
+                 <button class="browserButton">http://youngleadersconsortium.org/</button><br />
+             </div>
+
+          </div>
+
 </body>
 </html>

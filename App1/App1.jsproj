@@ -59,13 +59,27 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="default.html" />
+    <Content Include="images\back.png" />
+    <Content Include="images\BATTERY.png" />
+    <Content Include="images\BURGER_MENU.png" />
+    <Content Include="images\HOME.png" />
+    <Content Include="images\INFO.png" />
     <Content Include="images\LockScreenLogo.scale-200.png" />
+    <Content Include="images\refresh.png" />
+    <Content Include="images\RESOURCES.png" />
+    <Content Include="images\rop.png" />
+    <Content Include="images\SEARCH.png" />
+    <Content Include="images\SETTINGS.png" />
     <Content Include="images\SplashScreen.scale-200.png" />
     <Content Include="images\Square150x150Logo.scale-200.png" />
     <Content Include="images\Square44x44Logo.scale-200.png" />
     <Content Include="images\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="images\StoreLogo.png" />
+    <Content Include="images\TOGGLE.png" />
+    <Content Include="images\un-logo-black-hi.png" />
+    <Content Include="images\UN.png" />
     <Content Include="images\Wide310x150Logo.scale-200.png" />
+    <Content Include="images\YLC-LOGO.jpg" />
     <Content Include="js\dataExample.js" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />

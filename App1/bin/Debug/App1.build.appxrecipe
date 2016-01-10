@@ -21,8 +21,38 @@
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\default.html">
       <PackagePath>default.html</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\back.png">
+      <PackagePath>images\back.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\BATTERY.png">
+      <PackagePath>images\BATTERY.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\BURGER_MENU.png">
+      <PackagePath>images\BURGER_MENU.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\HOME.png">
+      <PackagePath>images\HOME.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\INFO.png">
+      <PackagePath>images\INFO.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\LockScreenLogo.scale-200.png">
       <PackagePath>images\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\refresh.png">
+      <PackagePath>images\refresh.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\RESOURCES.png">
+      <PackagePath>images\RESOURCES.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\rop.png">
+      <PackagePath>images\rop.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\SEARCH.png">
+      <PackagePath>images\SEARCH.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\SETTINGS.png">
+      <PackagePath>images\SETTINGS.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\SplashScreen.scale-200.png">
       <PackagePath>images\SplashScreen.scale-200.png</PackagePath>
@@ -44,9 +74,21 @@
       <PackagePath>images\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\TOGGLE.png">
+      <PackagePath>images\TOGGLE.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\un-logo-black-hi.png">
+      <PackagePath>images\un-logo-black-hi.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\UN.png">
+      <PackagePath>images\UN.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\Wide310x150Logo.scale-200.png">
       <PackagePath>images\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\YLC-LOGO.jpg">
+      <PackagePath>images\YLC-LOGO.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\js\dataExample.js">
       <PackagePath>js\dataExample.js</PackagePath>
