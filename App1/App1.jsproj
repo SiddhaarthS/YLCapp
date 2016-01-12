@@ -52,19 +52,26 @@
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>$(VersionNumberMajor).$(VersionNumberMinor)</MinimumVisualStudioVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>App1_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>App1_StoreKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
+    <PackageCertificateThumbprint>329D4F77E8EA3C58172EBFB6D3BA49CD3DFD84F0</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="App1_StoreKey.pfx" />
     <Content Include="default.html" />
     <Content Include="images\back.png" />
     <Content Include="images\BATTERY.png" />
     <Content Include="images\BURGER_MENU.png" />
+    <Content Include="images\group.png" />
     <Content Include="images\HOME.png" />
     <Content Include="images\INFO.png" />
     <Content Include="images\LockScreenLogo.scale-200.png" />
+    <Content Include="images\plus.png" />
     <Content Include="images\refresh.png" />
     <Content Include="images\RESOURCES.png" />
     <Content Include="images\rop.png" />
@@ -83,6 +90,7 @@
     <Content Include="js\dataExample.js" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="WinJS\css\ui-dark.css" />
     <Content Include="WinJS\css\ui-light.css" />
     <Content Include="WinJS\fonts\Symbols.ttf" />

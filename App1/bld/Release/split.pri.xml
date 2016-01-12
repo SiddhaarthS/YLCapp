@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="34466YoungLeadersConsorti.AskMUN" version="1.0" primary="true">
+		<Qualifiers>
+			<AlternateForm>UNPLATED</AlternateForm>
+			<Language>EN-US</Language>
+			<Scale>200</Scale>
+			<TargetSize>24</TargetSize>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<NamedResource name="default.html" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/default.html">
+				<Candidate type="Path">
+					<Value>default.html</Value>
+				</Candidate>
+			</NamedResource>
+			<ResourceMapSubtree name="css">
+				<NamedResource name="default.css" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/css/default.css">
+					<Candidate type="Path">
+						<Value>css\default.css</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="images">
+				<NamedResource name="back.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/back.png">
+					<Candidate type="Path">
+						<Value>images\back.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="BATTERY.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/BATTERY.png">
+					<Candidate type="Path">
+						<Value>images\BATTERY.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="BURGER_MENU.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/BURGER_MENU.png">
+					<Candidate type="Path">
+						<Value>images\BURGER_MENU.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="group.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/group.png">
+					<Candidate type="Path">
+						<Value>images\group.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="HOME.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/HOME.png">
+					<Candidate type="Path">
+						<Value>images\HOME.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="INFO.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/INFO.png">
+					<Candidate type="Path">
+						<Value>images\INFO.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LockScreenLogo.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/LockScreenLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>images\LockScreenLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="plus.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/plus.png">
+					<Candidate type="Path">
+						<Value>images\plus.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="refresh.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/refresh.png">
+					<Candidate type="Path">
+						<Value>images\refresh.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="RESOURCES.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/RESOURCES.png">
+					<Candidate type="Path">
+						<Value>images\RESOURCES.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="rop.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/rop.png">
+					<Candidate type="Path">
+						<Value>images\rop.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SEARCH.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/SEARCH.png">
+					<Candidate type="Path">
+						<Value>images\SEARCH.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SETTINGS.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/SETTINGS.png">
+					<Candidate type="Path">
+						<Value>images\SETTINGS.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SplashScreen.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/SplashScreen.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>images\SplashScreen.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square150x150Logo.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/Square150x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>images\Square150x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square44x44Logo.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/Square44x44Logo.png">
+					<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
+						<Value>images\Square44x44Logo.targetsize-24_altform-unplated.png</Value>
+					</Candidate>
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>images\Square44x44Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StoreLogo.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/StoreLogo.png">
+					<Candidate type="Path">
+						<Value>images\StoreLogo.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="TOGGLE.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/TOGGLE.png">
+					<Candidate type="Path">
+						<Value>images\TOGGLE.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="un-logo-black-hi.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/un-logo-black-hi.png">
+					<Candidate type="Path">
+						<Value>images\un-logo-black-hi.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="UN.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/UN.png">
+					<Candidate type="Path">
+						<Value>images\UN.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Wide310x150Logo.png" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/Wide310x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>images\Wide310x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="YLC-LOGO.jpg" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/images/YLC-LOGO.jpg">
+					<Candidate type="Path">
+						<Value>images\YLC-LOGO.jpg</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="js">
+				<NamedResource name="dataExample.js" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/js/dataExample.js">
+					<Candidate type="Path">
+						<Value>js\dataExample.js</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="default.js" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/js/default.js">
+					<Candidate type="Path">
+						<Value>js\default.js</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="WinJS">
+				<ResourceMapSubtree name="css">
+					<NamedResource name="ui-dark.css" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/WinJS/css/ui-dark.css">
+						<Candidate type="Path">
+							<Value>WinJS\css\ui-dark.css</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ui-light.css" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/WinJS/css/ui-light.css">
+						<Candidate type="Path">
+							<Value>WinJS\css\ui-light.css</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="fonts">
+					<NamedResource name="Symbols.ttf" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/WinJS/fonts/Symbols.ttf">
+						<Candidate type="Path">
+							<Value>WinJS\fonts\Symbols.ttf</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="js">
+					<NamedResource name="base.js" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/WinJS/js/base.js">
+						<Candidate type="Path">
+							<Value>WinJS\js\base.js</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ui.js" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/WinJS/js/ui.js">
+						<Candidate type="Path">
+							<Value>WinJS\js\ui.js</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ui.strings.js" uri="ms-resource://34466YoungLeadersConsorti.AskMUN/Files/WinJS/js/ui.strings.js">
+						<Candidate qualifiers="Language-EN-US" isDefault="true" type="Path">
+							<Value>WinJS\js\en-US\ui.strings.js</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

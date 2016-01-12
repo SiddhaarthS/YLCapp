@@ -2,7 +2,13 @@
 // http://go.microsoft.com/fwlink/?LinkId=232509
 (function () {
 	"use strict";
-    var dataList;
+	var dataList;
+    //Now we are adding the JS objects for the datepicker object
+
+	var StartDatePicker = new WinJS.UI.DatePicker(document.getElementById("AddMunStartDate"));
+	StartDatePicker.minYear = 2016;
+	var EndDatePicker = new WinJS.UI.DatePicker(document.getElementById("AddMunEndDate"));
+	EndDatePicker.minYear = 2016;
 	var app = WinJS.Application;
 	var activation = Windows.ApplicationModel.Activation;
 	var folderRef = app.local;
@@ -146,8 +152,26 @@
 			var YLCButton = document.getElementById("YLCButton");
 			YLCButton.addEventListener("click", buttonClickHandler, false);
 
+			var AskYLCButton = document.getElementById("AskYLCButton");
+			AskYLCButton.addEventListener("click", BrowserClickHandler, false);
+
+			var QueryButton = document.getElementById("QueryButton");
+			QueryButton.addEventListener("click", QueryBrowserClickHandler, false);
+
+			var AboutButton = document.getElementById("AboutButton");
+			AboutButton.addEventListener("click", buttonClickHandler, false);
+
 			var RefreshButton = document.getElementById("RefreshButton");
 			RefreshButton.addEventListener("click", buttonClickHandler, false);
+
+			var AddMUNbutton = document.getElementById("AddMUNbutton");
+			AddMUNbutton.addEventListener("click", addMUNClickHandler, false);
+
+			var PushMUNbutton = document.getElementById("PushMUNbutton");
+			PushMUNbutton.addEventListener("click", PushMUNClickHandler, false);
+
+			var AddMunBackButton = document.getElementById("AddMunBackButton");
+			AddMunBackButton.addEventListener("click", AddMunBackHandler, false);
 
 			var DisplayMenuButton = document.getElementById("DisplayMenuButton");
 			DisplayMenuButton.addEventListener("click", buttonClickHandler, false);
@@ -182,6 +206,10 @@
 		    // addEventListener syntax for itemInvoked
 			var basicListView = document.getElementById("basicListView");
 			basicListView.addEventListener("iteminvoked", itemInvokedHandler);
+
+		    // addEventListener syntax for searchItemInvoked
+			var searchListView = document.getElementById("searchListView");
+			searchListView.addEventListener("iteminvoked", searchItemInvokedHandler);
 
 		    //These buttons are for those found in the MUN Resources page
 			var ROPButton = document.getElementById("ROPButton");
@@ -237,6 +265,8 @@
 	            document.getElementById("MUN").style.display = "none";
 	            document.getElementById("UN").style.display = "none";
 	            document.getElementById("YLC").style.display = "none";
+	            document.getElementById("AboutApp").style.display = "none";
+	            document.getElementById("AddMUNbutton").style.display = "block";
 	            break;
 
 	        case "MUNButton":
@@ -250,6 +280,8 @@
 	            document.getElementById("OC").style.display = "none";
 	            document.getElementById("UNC").style.display = "none";
 	            document.getElementById("DHR").style.display = "none";
+	            document.getElementById("AboutApp").style.display = "none";
+	            document.getElementById("AddMUNbutton").style.display = "none";
 	            break;
 
             case "UNButton":
@@ -257,6 +289,8 @@
                 document.getElementById("MUN").style.display = "none";
                 document.getElementById("UN").style.display = "block";
                 document.getElementById("YLC").style.display = "none";
+                document.getElementById("AboutApp").style.display = "none";
+                document.getElementById("AddMUNbutton").style.display = "none";
                 break;
 
 	        case "YLCButton":
@@ -264,11 +298,23 @@
 	            document.getElementById("MUN").style.display = "none";
 	            document.getElementById("UN").style.display = "none";
 	            document.getElementById("YLC").style.display = "block";
+	            document.getElementById("AboutApp").style.display = "none";
+	            document.getElementById("AddMUNbutton").style.display = "none";
+	            break;
+
+	        case "AboutButton":
+	            document.getElementById("basicListView").style.display = "none";
+	            document.getElementById("MUN").style.display = "none";
+	            document.getElementById("UN").style.display = "none";
+	            document.getElementById("YLC").style.display = "none";
+	            document.getElementById("AboutApp").style.display = "block";
+	            document.getElementById("AddMUNbutton").style.display = "none";
 	            break;
 
 	        case "RefreshButton":
 	            var username = "qqnehcGoop2eo4bIQfhE8eXsxBA6aejlrakt0J3u";
 	            var password = "javascript-key=sZBrnv7KevAzPEA8JeLRLYV0uAGMir4xsuN4Zn9S";
+
 
 	            WinJS.xhr({
 	                headers: { "Content-type": "application/json", "Authorization": "Basic " + btoa(username + ":" + password) },
@@ -322,6 +368,9 @@
 	            document.getElementById("MUN").style.display = "none";
 	            document.getElementById("UN").style.display = "none";
 	            document.getElementById("YLC").style.display = "none";
+	            document.getElementById("AboutApp").style.display = "none";
+	            document.getElementById("AddMUNbutton").style.display = "block";
+
 	            break;
 	    }
 	}
@@ -376,13 +425,29 @@
 	}
 
 	function SearchHandler(eventInfo) {
-	 /*   document.getElementById("Non_Search_Non_Add").style.display = "none";*/
 	    document.getElementById("SearchPage").style.display = "block";
+	    document.getElementById("AddMUNbutton").style.display = "none";
+
+	}
+
+	function addMUNClickHandler(eventInfo) {
+	    document.getElementById("AddMunPage").style.display = "block";
+        document.getElementById("AddMUNbutton").style.display = "none";
+
 	}
 
 	function BackHandler(eventInfo) {
 	    /*   document.getElementById("Non_Search_Non_Add").style.display = "none";*/
-	    document.getElementById("SearchPage").style.display ="none";
+	    document.getElementById("SearchPage").style.display = "none";
+	    document.getElementById("AddMUNbutton").style.display = "block";
+
+	}
+
+	function AddMunBackHandler(eventInfo) {
+	    /*   document.getElementById("Non_Search_Non_Add").style.display = "none";*/
+	    document.getElementById("AddMunPage").style.display = "none";
+	    document.getElementById("AddMUNbutton").style.display = "block";
+
 	}
 
 	function SearchByHandler(eventInfo) {
@@ -579,7 +644,6 @@
 	    clickedTile.childNodes[13]   : <div id="blank_circle" style="display: none;"></div>
         clickedTile.childNodes[15]   : <div id="right_circle" style="display: none;"></div>*/
 	}
-	app.start();
 
 	function searchItemInvokedHandler(eventInfo) {
 	    /* Your code */
@@ -615,6 +679,98 @@
 	    clickedTile.childNodes[11]   : <!--The following tags will initially be hidden and toggle with the tags used above on clicking-->
 	    clickedTile.childNodes[13]   : <div id="blank_circle" style="display: none;"></div>
         clickedTile.childNodes[15]   : <div id="right_circle" style="display: none;"></div>*/
+	}
+
+	function BrowserClickHandler(eventInfo) {
+
+	    // The URI to launch
+	    var uriToLaunch = "http://goo.gl/forms/V1I12cEbdE";
+	    // Create a Uri object from a URI string 
+	    var uri = new Windows.Foundation.Uri(uriToLaunch);
+	    // Launch the URI
+	    Windows.System.Launcher.launchUriAsync(uri).then(
+           function (success) {
+               if (success) {
+                   // URI launched
+               } else {
+                   // URI launch failed
+               }
+           });
+	}
+
+	function QueryBrowserClickHandler(eventInfo) {
+
+	    // The URI to launch
+	    var uriToLaunch = "https://docs.google.com/forms/d/1b-PggBTK9Knb7MV4G06HRBRgnR1EQuUIy0PWJapK_xQ/viewform";
+	    // Create a Uri object from a URI string 
+	    var uri = new Windows.Foundation.Uri(uriToLaunch);
+	    // Launch the URI
+	    Windows.System.Launcher.launchUriAsync(uri).then(
+           function (success) {
+               if (success) {
+                   // URI launched
+               } else {
+                   // URI launch failed
+               }
+           });
+	}
+
+	function PushMUNClickHandler(eventInfo) {
+	    console.log("Push");
+	    var MunName= document.getElementById("AddMunName").value;
+	    var MunVenue = document.getElementById("AddMunVenue").value;
+	    var MunCity = document.getElementById("AddMunCity").value;
+	    var MunLink= document.getElementById("AddMunLink").value;
+	    var ISOStartDate = StartDatePicker.current.toISOString();
+	    var ISOEndDate = StartDatePicker.current.toISOString();
+	    var StartDateObject = {
+	        __type: "Date",
+	        iso: ISOStartDate,
+	    };
+	    var EndDateObject = {
+	        __type: "Date",
+	        iso: ISOEndDate,
+	    };
+	    var startYear = StartDatePicker.current.getFullYear();
+	    var startMonth = StartDatePicker.current.getMonth() + 1;
+	    if (startMonth < 10) {
+	        startMonth = "0".concat(startMonth);
+	    }
+	    var startDate = StartDatePicker.current.getDate();
+	    if (startDate < 10) {
+	        startDate = "0".concat(startDate);
+	    }
+	    var SortDate = startYear + '-' + startMonth + '-' + startDate;
+	    console.log(SortDate);
+	    var newObject = {
+	        name: MunName,
+	        venue: MunVenue,
+	        city: MunCity,
+	        link: MunLink,
+	        start_date: StartDateObject,
+	        end_date: EndDateObject,
+	        sort_date: SortDate,
+            priority: "approval"
+	    };
+	    console.log(JSON.stringify(newObject));
+
+	    var username = "qqnehcGoop2eo4bIQfhE8eXsxBA6aejlrakt0J3u";
+	    var password = "javascript-key=sZBrnv7KevAzPEA8JeLRLYV0uAGMir4xsuN4Zn9S";
+
+	    WinJS.xhr({
+	        headers: { "Content-type": "application/json", "Authorization": "Basic " + btoa(username + ":" + password) },
+	        data : JSON.stringify(newObject),
+	        url: "https://api.parse.com/1/classes/mun", type: "post", responseType: "JSON"
+	    }).then(
+            function (success) {
+                console.log(success);
+            },
+           function (error) {
+               console.log(error);
+           }
+            );
+
+
 	}
 	app.start();
 })();

@@ -30,6 +30,9 @@
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\BURGER_MENU.png">
       <PackagePath>images\BURGER_MENU.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\group.png">
+      <PackagePath>images\group.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\HOME.png">
       <PackagePath>images\HOME.png</PackagePath>
     </AppxPackagedFile>
@@ -38,6 +41,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\LockScreenLogo.scale-200.png">
       <PackagePath>images\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\plus.png">
+      <PackagePath>images\plus.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sudhakaran nellayil\Documents\Visual Studio 2015\Projects\App1\App1\images\refresh.png">
       <PackagePath>images\refresh.png</PackagePath>

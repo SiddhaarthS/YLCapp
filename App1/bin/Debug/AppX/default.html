@@ -16,9 +16,30 @@
     <script src="/js/dataExample.js"></script>
 </head>
 <body class="win-type-body" id="body">
+    <button id="AddMUNbutton" style="background-image: url('images/plus.png') " title="Add Event"></button>
+    <div id="AddMunPage" style="display:none">
+        <div id="addMun-title-bar" style="padding : 10px 10px 10px 10px">
+            <button id="AddMunBackButton" class="BackButton" title="Go Back" style="background-image: url('images/back.png')"> </button>&nbsp;&nbsp;
+            <img src="images/YLC-LOGO.jpg" style="width 50px; height:50px;border-radius:25px;" />&nbsp;&nbsp;
+             Add Event<br /><hr /><br />
+        </div>
+        Name:<br/>
+        <input id="AddMunName" type="text" placeholder="Event Name" style="width:100%;font-size:20px; height:45px" /><br/>
+        Venue:<br />
+        <input id="AddMunVenue" type="text" placeholder="XYZ College" style="width:100%;font-size:20px; height:45px" /><br />
+        City:<br />
+        <input id="AddMunCity" type="text" placeholder="Gotham" style="width:100%;font-size:20px; height:45px" /><br />
+        Link:<br />
+        <input id="AddMunLink" type="text" placeholder="www.example.com" style="width:100%;font-size:20px; height:45px" /><br />
+        Start Date:<br/>
+        <div id="AddMunStartDate" data-win-control="WinJS.UI.DatePicker"></div><br/>
+        End Date:<br/>
+        <div id="AddMunEndDate" data-win-control="WinJS.UI.DatePicker"></div><br/><br/>
+        <center><button id="PushMUNbutton" style="width:100px; height:30px">Add Mun</button></center>
+    </div>
     <div id="SearchPage">
         <div id="search-title-bar" style="padding : 10px 10px 10px 10px">
-            <button id="BackButton" title="Go Back" style="background-image: url('images/back.png')"> </button>&nbsp;&nbsp;
+            <button id="BackButton" class="BackButton" title="Go Back" style="background-image: url('images/back.png')"> </button>&nbsp;&nbsp;
             <img src="images/YLC-LOGO.jpg" style=" width: 50px; height:50px;border-radius:25px;" />&nbsp;&nbsp;
             Search<br/><hr/><br/>
             <div id="search-tabs">
@@ -51,40 +72,41 @@
         </div>
         <div id="searchObjectListIconTextTemplate" data-win-control="WinJS.Binding.Template" >                     
                 <!-- Displays the "start_date" and "end_date" field. -->
-                <div id="search_date_display">
-                   <div id="search_date_text">
-                       <scan data-win-bind="innerText: start_date"></scan>-<scan data-win-bind="innerText: end_date"></scan><br/>
-                      <scan data-win-bind="innerText: sort_date"></scan>
-                  </div>
+            <div id="search_date_display">
+                <div id="search_date_text">
+                    <scan data-win-bind="innerText: start_date"></scan>-<scan data-win-bind="innerText: end_date"></scan><br />
+                    <scan data-win-bind="innerText: sort_date"></scan>
+                </div>
+            </div>
                     <!-- Displays the "venue" field and "city" -->
-                    <div id="search_venue_text" style="float:left">
+            <div id="search_venue_text" style="float:left">
                         <div id="search_name">
                             <scan data-win-bind="innerText: name "></scan><br />
                         </div>
                         <scan data-win-bind="innerText: city"></scan>
                     </div>
-                    <div id="search_instruction">
+            <div id="search_instruction">
                         Touch for details
                     </div>
                     <!--The following tags will initially be hidden and toggle with the tags used above on clicking-->
-                    <div id="search_blank_circle">
-                    </div>
+            <div id="search_blank_circle">
+            </div>
 
-                    <div id="search_right_circle">
+            <div id="search_right_circle">
                         <div id="search_date_text_right">
                             <scan data-win-bind="innerText: start_date"></scan>-<scan data-win-bind="innerText: end_date"></scan><br />
                             <scan data-win-bind="innerText: sort_date"></scan>
                         </div>
                     </div>
 
-                    <div id="search_detailed_text" style="float:left">
+            <div id="search_detailed_text" style="float:left">
                         <div id="search_venue">
                             <scan data-win-bind="innerText: venue "></scan>,<scan data-win-bind="innerText: city "></scan><br />
                         </div>
                         <button class="browserButton" id="search_browserButton"><scan data-win-bind="innerText: link"></scan></button><br />
                         <scan data-win-bind="innerText: contact1"></scan>
                     </div>
-              </div>
+              
         </div>
         <div float="left">
             <button id="GoSearchNameButton" class="search-icon-button" style="background-image: url('images/SEARCH.png');background-size:50px 50px; background-repeat:no-repeat"></button>
@@ -109,11 +131,12 @@
         </div>
 
         <div id="navigation-button-bar" style="padding : 10px 10px 10px 10px ">
-            <button id="HomeButton" class="button-round" title="Home" style="background-image: url('images/HOME.png') ; background-size:25px 25px"> </button>&nbsp;&nbsp;
-            <button id="MUNButton" class="button-round" title="MUN Resources" style="background-image: url('images/RESOURCES.png') ; background-size:25px 25px"> </button>&nbsp;&nbsp;
-            <button id="UNButton" class="button-round" title="About UN" style="background-image: url('images/un-logo-black-hi.png') ; background-size:25px 25px"> </button> &nbsp;&nbsp;
-            <button id="YLCButton" class="button-round" title="About YLC" style="background-image: url('images/INFO.png') ; background-size:25px 25px"> </button> &nbsp;&nbsp;
-            <button id="RefreshButton" class="button-round" title="Refresh" style="background-image: url('images/refresh.png') ; background-size:25px 25px"> </button> &nbsp;&nbsp;
+            <button id="HomeButton" class="button-round" title="Home" style="background-image: url('images/HOME.png') ; background-size:25px 25px"> </button>
+            <button id="MUNButton" class="button-round" title="MUN Resources" style="background-image: url('images/RESOURCES.png') ; background-size:25px 25px"> </button>
+            <button id="UNButton" class="button-round" title="About UN" style="background-image: url('images/un-logo-black-hi.png') ; background-size:25px 25px"> </button> 
+            <button id="YLCButton" class="button-round" title="About YLC" style="background-image: url('images/INFO.png') ; background-size:25px 25px"> </button>
+            <button id="RefreshButton" class="button-round" title="Refresh" style="background-image: url('images/refresh.png') ; background-size:25px 25px"> </button> 
+            <button id="AboutButton" class="button-round" title="About the app" style="background-image: url('images/group.png') ; background-size:25px 25px"> </button> 
         </div>
 
             <div id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template">
@@ -1130,7 +1153,11 @@
 
          <div id="YLC" class="win-scrollview" style="display : 'none'; width:90%; padding-left:5%">
              <div id="chumma" style="overflow-y: scroll" class="win-scrollview" >
-                 <h3>About Us</h3>
+                 <div id="YLC_Page_tab">
+                     <button id="AskYLCButton" class="YLCTabButton"> Ask YLC </button>
+                     <button id="QueryButton" class="YLCTabButton" style="float : right;" > Query </button>
+                 </div>
+                 <h3><center>Young Leader's Consortium</center></h3>
                  <p>
                      Young Leaders’ Consortium or YLC as the name suggests is a gathering of young student leaders
                      from diverse educational fields who can share their skills,
@@ -1163,6 +1190,27 @@
              </div>
 
           </div>
+        <div id="AboutApp" style="display:none; padding-left:5%">
+            <h3>About the App</h3>
+            This app is the property of Young Leader's Consoritum<br/>
+            <h3>Developer Info</h3>
+            Developed by <b><u><i></i>TricCroc Technologies</i></u></b><br/>
+            Services we offer
+            <ul>
+                <li>End-to-end Web Development</li>
+                <li>Android, iOS, Windows10 App Development</li>
+                <li>Tailor-Made IT Solutions for Businesses</li>
+            </ul>
+            Contact us at
+            <ul>
+                <li>Phone: 9677043422</li>
+                <li>Mail : tricroctech@gmail.com</li>
+            </ul>
+            Design by <br/>
+            Swaathikka. K<br/>
+            Contact: swaathikka@gmail.com
+
+        </div>
 
 </body>
 </html>

@@ -1,6 +1,10 @@
 ﻿body {
 }
 
+input[type="text"],select{
+    background-color:#c2c2a3
+}
+
 .win-listview 
 {
    height: 100%; 
@@ -13,8 +17,13 @@
 #SearchPage{
     width:100%;
     height:100%;
-
 }
+
+#AddMunPage{
+    width:100%;
+    height:100%;
+}
+
 #search-tabs{
     height: 30px;
     width: 100%;
@@ -53,9 +62,9 @@
 
 #date_display
 {
-    height : 80px;
-    width: 80px;
-    border-radius: 40px; 
+    height : 50px;
+    width: 50px;
+    border-radius: 25px; 
     background-color: #999966; 
     float:left ; 
     border-color:#ffffff; 
@@ -64,9 +73,9 @@
 
 #search_date_display
 {
-    height : 80px;
-    width: 80px;
-    border-radius: 40px; 
+    height : 50px;
+    width: 50px;
+    border-radius: 25px; 
     background-color: #999966; 
     float:left ; 
     border-color:#ffffff; 
@@ -84,13 +93,27 @@
 
 }
 
-#BackButton
+.BackButton
 {
     width:50px;
     height:50px; 
     border-radius:25px;
     background-image: url('images/BURGER_MENU.png') ; 
     background-size:45px 45px
+}
+
+.YLCTabButton{
+    width:30%;
+    height:50px;
+    background-color: #999966; 
+}
+
+#detailed_text{
+    font-size:12px;
+}
+
+#search_detailed_text{
+    font-size:12px;
 }
 
 #SearchButton
@@ -103,11 +126,23 @@
     background-size:45px 45px
 }
 
+#AddMUNbutton
+{
+    width:50px;
+    height:50px; 
+    border-radius:25px;
+    position:fixed;
+    right: 10px;
+    bottom: 10px;
+    background-size:45px 45px;
+    z-index:100;
+}
+
 #blank_circle
 {
-    height : 80px;
-    width: 80px;
-    border-radius: 40px; 
+    height : 50px;
+    width: 50px;
+    border-radius: 25px; 
     background-color:#c2c2a3; 
     float:left ; 
     border-color:#ffffff; 
@@ -116,9 +151,9 @@
 
 #search_blank_circle
 {
-    height : 80px;
-    width: 80px;
-    border-radius: 40px; 
+    height : 50px;
+    width: 50px;
+    border-radius: 25px; 
     background-color:#c2c2a3; 
     float:left ; 
     border-color:#ffffff; 
@@ -128,9 +163,9 @@
 #right_circle
 {
     float : right;
-    height : 80px;
-    width: 80px;
-    border-radius: 40px; 
+    height : 50px;
+    width: 50px;
+    border-radius: 25px; 
     background-color: #999966; 
     border-color:#ffffff; 
     border-style:solid;
@@ -139,9 +174,9 @@
 #search_right_circle
 {
     float : right;
-    height : 80px;
-    width: 80px;
-    border-radius: 40px; 
+    height : 50px;
+    width: 50px;
+    border-radius: 25px; 
     background-color: #999966; 
     border-color:#ffffff; 
     border-style:solid;
@@ -160,32 +195,34 @@
 }
 
 #name {
-    font-size:25px;
+    font-size:15px;
 }
 
 #search_name {
-    font-size:25px;
+    font-size:15px;
 }
 
 #venue {
-    font-size:25px;
+    font-size:15px;
 }
 
 #search_venue {
-    font-size:25px;
+    font-size:15px;
 }
 
 #date_text{
     position:relative; 
     top:25%; 
     left:25%; 
-    padding:0px 2px 2px 2px
+    padding:0px 2px 2px 2px;
+    font-size: 10px;
 }
 
 #search_date_text{
     position:relative; 
     top:25%; 
     left:25%; 
+    font-size: 10px;
     padding:0px 2px 2px 2px
 }
 
@@ -204,14 +241,16 @@
     position:relative; 
     top:25%; 
     left:25%; 
-    padding:0px 2px 2px 2px
+    padding:0px 2px 2px 2px;
+    font-size:10px;
 }
 
 #search_date_text_right{
     position:relative; 
     top:25%; 
     left:25%; 
-    padding:0px 2px 2px 2px
+    padding:0px 2px 2px 2px;
+    font-size:10px;
 }
 #parseObjectListIconTextTemplate
 {
